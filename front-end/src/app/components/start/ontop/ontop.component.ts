@@ -13,7 +13,7 @@ export class OntopComponent implements OnInit {
   ngOnInit(): void {
     this.Top_News()
   }
-  private Top_News () :any {
+  private Top_News () :any  {
     this.ns.getOnTopNews().subscribe(items => {
       this.news=items
     });

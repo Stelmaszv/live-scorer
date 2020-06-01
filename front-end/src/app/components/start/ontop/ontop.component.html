@@ -1,1 +1,3 @@
-{{news}}
+<div *ngFor="let el of news;">
+    <a routerLink="/item/{{el.id}}" routerLinkActive="active"> {{el.title}}</a>
+</div>

@@ -1,35 +1,59 @@
-$ontop-margin-top:1.5rem;
-$ontop-background-color:rgb(10, 5, 5);
-$ontop-mian-title-border:2px solid red;
-$ontop-mian-title-background-color:rgba(0, 0, 0, 0.472);
-$ontop-mian-title-background-font-color:white;
+@import "../../../../styles.scss";
 .ontop{
     margin-top: $ontop-margin-top;
     box-sizing: content-box;
-    padding: 5px;
+    padding: $ontop-padding;
     position: relative;
     .main{
+        transition: transform $ontop-maian-transform;
         img{
-            width: 740px;
-            height: 300px;
+            width: $ontop-mian-widt;
+            height: $ontop-mian-height;
         }
         .title{
             position: absolute;
             bottom: 0;
-            width: 740px;
-            padding: 20px;
+            width: $ontop-mian-widt;
+            padding: $ontop-mian-title-background-padding;
             border-top: $ontop-mian-title-border;
-            background-color: $ontop-mian-title-background-color; 
-            div{
+            background-color: $ontop-title-background-color; 
+            a{
                 color: $ontop-mian-title-background-font-color;
             }
         }
+        &:hover{
+            transform: $ontop-tops-transform-scale;
+            -webkit-box-shadow: $ontop-shoodow;
+            -moz-box-shadow: $ontop-shoodow;
+            box-shadow: $ontop-shoodow;
+        }
     }
+
     .tops{
-        img{
-            margin: 1px;
-            width: 345px;
-            height: 150px;
+        .item{
+            transition: $ontop-tops-transform;
+            position: relative;
+            img{
+                margin-top: $ontop-tops-img-margin-top;
+                width: $ontop-tops-width;
+                height: $ontop-tops-height;
+            }
+            .title{
+                position: absolute;
+                bottom: 0;
+                width: $ontop-tops-width;
+                padding: $ontop-tops-title-padding;
+                background-color: $ontop-title-background-color; 
+                a{
+                    color: $ontop-mian-title-background-font-color;
+                }
+            }
+            &:hover{
+                transform: $ontop-tops-transform-scale;
+                -webkit-box-shadow: $ontop-shoodow;
+                -moz-box-shadow: $ontop-shoodow;
+                box-shadow: $ontop-shoodow;
+            }
         }
     }
 }

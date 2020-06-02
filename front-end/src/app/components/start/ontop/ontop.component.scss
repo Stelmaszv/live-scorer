@@ -1,5 +1,8 @@
 $ontop-margin-top:1.5rem;
 $ontop-background-color:rgb(10, 5, 5);
+$ontop-mian-title-border:2px solid red;
+$ontop-mian-title-background-color:rgba(0, 0, 0, 0.472);
+$ontop-mian-title-background-font-color:white;
 .ontop{
     margin-top: $ontop-margin-top;
     box-sizing: content-box;
@@ -15,10 +18,10 @@ $ontop-background-color:rgb(10, 5, 5);
             bottom: 0;
             width: 740px;
             padding: 20px;
-            border-top: 2px solid red;
-            background-color: rgba(0, 0, 0, 0.472); 
+            border-top: $ontop-mian-title-border;
+            background-color: $ontop-mian-title-background-color; 
             div{
-                color: white;
+                color: $ontop-mian-title-background-font-color;
             }
         }
     }

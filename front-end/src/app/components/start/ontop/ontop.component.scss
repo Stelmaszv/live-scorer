@@ -1,0 +1,32 @@
+$ontop-margin-top:1.5rem;
+$ontop-background-color:rgb(10, 5, 5);
+.ontop{
+    margin-top: $ontop-margin-top;
+    box-sizing: content-box;
+    padding: 5px;
+    position: relative;
+    .main{
+        img{
+            width: 740px;
+            height: 300px;
+        }
+        .title{
+            position: absolute;
+            bottom: 0;
+            width: 740px;
+            padding: 20px;
+            border-top: 2px solid red;
+            background-color: rgba(0, 0, 0, 0.472); 
+            div{
+                color: white;
+            }
+        }
+    }
+    .tops{
+        img{
+            margin: 1px;
+            width: 345px;
+            height: 150px;
+        }
+    }
+}

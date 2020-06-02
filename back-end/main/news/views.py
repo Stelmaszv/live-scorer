@@ -4,5 +4,3 @@ from .serializers import NewsSerializer
 class Top_News(viewsets.ModelViewSet):
     queryset = News.objects.filter(ontop=True)
     serializer_class = NewsSerializer
-    def get_queryset(self):
-        return  self.queryset

@@ -4,3 +4,4 @@ back-end/venv/
 front-end/node_modules/
 front-end/e2e/
 back-end/main/db.sqlite3
+node_modules/

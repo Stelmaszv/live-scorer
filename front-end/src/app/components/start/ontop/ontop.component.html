@@ -1,31 +1,20 @@
-<div *ngFor="let el of news;">
-    {{el.title}}
-</div>
-
-
-<div *ngFor="let el of news;">
-    <div class="ontop">
-        <div class="row">
-            <div class="col-8 main">
-                <img src="{{el.photo}}">
-                <div class="title">
-                    <a>{{el.title}}</a>
-                </div>
+<div class="ontop">
+    <div class="row">
+        <div class="col-8 main">
+            <img src="{{mian.photo}}">
+            <div class="title">
+                <a>{{mian.title}}</a>
             </div>
-            <div class="col-4 tops">
-                <div class="item">
-                    <img src="http://placekitten.com/740/300">
+        </div>
+        <div class="col-4 tops">
+            <span *ngFor="let el of news;">
+                <div class="item" *ngIf="!el.ontop">
+                    <img src="{{el.photo}}">
                     <div class="title">
-                            <a>Lorem ipsum dolor</a>
-                        </div>
-                </div>
-                <div class="item">
-                    <img src="http://placekitten.com/740/300">
-                    <div class="title">
-                        <a>Lorem ipsum dolor</a>
+                        <a>{{el.title}}</a>
                     </div>
                 </div>
-            </div>
+            </span>
         </div>
     </div>
 </div>

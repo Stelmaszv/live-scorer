@@ -9,13 +9,16 @@ import {NewsService} from '../../../service/news.service'
 })
 export class OntopComponent implements OnInit {
   news:News_Model[];
+  mian:News_Model;
   constructor(private ns:NewsService) { }
   ngOnInit(): void {
     this.Top_News()
   }
   private Top_News () :any  {
+
     this.ns.getOnTopNews().subscribe(items => {
-      this.news=items
+        this.news=items      
+        this.mian=items[0]
     });
   }
 

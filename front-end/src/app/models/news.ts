@@ -1,5 +1,7 @@
 export class News_Model {
     id:number;
-    name:string;
+    photo:string;
+    title:string;
     url:string;
+    ontop:boolean;
 }

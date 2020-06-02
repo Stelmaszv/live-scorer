@@ -3,4 +3,4 @@ from .models import News
 class NewsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model  = News
-        fields =  ('id','title','url')
+        fields =  ('id','title','photo','url')

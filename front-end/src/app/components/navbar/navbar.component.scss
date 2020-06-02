@@ -1,0 +1,37 @@
+@import "../../../styles.scss";
+.navbar-custom {
+    background-color: $navbarColor;
+    .btn{
+        color: $btm_Font;
+        background-color:blueviolet;
+        border-color: aqua;
+    }
+    /* change the brand color */
+    .navbar-brand{
+        color:$navbar_Brand;
+    } 
+    /* change the brand text */
+    .navbar-text{
+        color: $navbar_Brand_text
+    }
+    /* change the link color */
+    .navbar-nav{
+        .nav-link{
+            color: $navbar-nav-link 
+        }
+    }
+    /* change the color of active links */
+    .nav-item.active{
+        .nav-link{
+            color: $navbar-nav-active;
+        }
+    }
+    /* change the color of active hovered links */
+    .nav-item:hover{
+        .nav-link{
+            color: $navbar-nav-hover;
+        }
+    }
+}
+
+

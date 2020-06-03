@@ -7,6 +7,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('',include(router.urls)),
+    path('Get_news_from_category/<str:category>/',views.Get_news_from_category.as_view(),name='news'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

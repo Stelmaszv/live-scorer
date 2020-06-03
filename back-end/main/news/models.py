@@ -1,6 +1,8 @@
 from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=50)
+    def __str__(self):
+        return  self.name
 class News(models.Model):
     title = models.CharField(max_length=50)
     photo = models.FileField(upload_to='img', null=True, blank=True)

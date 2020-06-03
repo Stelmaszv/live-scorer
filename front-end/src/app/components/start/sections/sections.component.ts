@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input } from '@angular/core';
 
 @Component({
   selector: 'app-sections',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sections.component.scss']
 })
 export class SectionsComponent implements OnInit {
-
+  @Input() category:string
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.category)
   }
 
 }

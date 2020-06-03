@@ -1,4 +1,6 @@
 import { Component, OnInit , Input } from '@angular/core';
+import {NewsService} from '../../../service/news.service'
+import { News_Model } from  '../../../models/news'
 
 @Component({
   selector: 'app-sections',
@@ -7,10 +9,18 @@ import { Component, OnInit , Input } from '@angular/core';
 })
 export class SectionsComponent implements OnInit {
   @Input() category:string
-  constructor() { }
+  news:News_Model[];
+  mian:News_Model;
+  constructor(private ns:NewsService) { }
 
   ngOnInit(): void {
-    console.log(this.category)
+    this.From_Category(this.category)
+  }
+  private From_Category (category) :any  {
+    this.ns.Get_News_From_Category(category).subscribe(items => {
+      this.news=items      
+      this.mian=items[0]
+    });
   }
 
 }

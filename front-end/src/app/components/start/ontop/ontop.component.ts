@@ -15,8 +15,7 @@ export class OntopComponent implements OnInit {
     this.Top_News()
   }
   private Top_News () :any  {
-
-    this.ns.getOnTopNews().subscribe(items => {
+    this.ns.Get_Top_News().subscribe(items => {
         this.news=items      
         this.mian=items[0]
     });

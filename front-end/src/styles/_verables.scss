@@ -10,9 +10,9 @@ $navbar-nav-active:rgba(185, 153, 189, 0.5);
 $navbar-nav-hover: rgb(172, 194, 73);
 /* ontop */
 $ontop-margin-top:1.5rem;
+$ontop-margin-bottom:1.5rem;
 $ontop-padding:5px;
 $ontop-background-color:rgb(10, 5, 5);
-$ontop-shoodow:10px 6px 5px 0px rgba(0,0,0,0.75);
 $ontop-title-background-color:rgba(0, 0, 0, 0.472);
 /* ontop main */
 $ontop-mian-title-border:2px solid red;
@@ -29,3 +29,29 @@ $ontop-tops-width:345px;
 $ontop-tops-height:130px;
 $ontop-tops-img-margin-top:17px;
 $ontop-tops-title-padding:5px;
+$ontop-title-background-color-hover:rgb(124, 6, 6);
+$ontop-mian-title-border_hover:2px solid white;
+
+/* start component */
+$start_section_margin_bottom:25px;
+$start_section_border-top: 2px solid rgb(85, 4, 4);
+
+/* section */
+$transition_content_mian:.5s;
+/* ontop header */
+$heder_show_all_in_category_color:rgb(3, 6, 194);
+$heder_show_all_in_category_color_hover:rgb(3, 6, 194);
+/* ontop $content*/
+$content_main_img_width:200px;
+$content_main_img_height:200px;
+$content_main_img_margin-top:200px;
+$content_main_transition:1s;
+$content_main_title_color:white;
+$content_main_title_color_hover:rgb(241, 230, 230);
+$content_main_title_color_background:rgba(0, 0, 0, 0.472);
+$content_main_title_color_background_hover:rgb(124, 6, 6);
+$content_main_transform-scale:scale(1.05);
+
+$content_news_list_section_line-height:35px;
+$content_news_list_section_color:rgb(1, 6, 37);
+$content_news_list_section__color_hover:rgb(15, 161, 161);

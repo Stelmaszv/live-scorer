@@ -1,6 +1,7 @@
 @import "../../../../styles.scss";
 .ontop{
     margin-top: $ontop-margin-top;
+    margin-bottom: $ontop-margin-bottom;
     box-sizing: content-box;
     padding: $ontop-padding;
     position: relative;
@@ -23,9 +24,10 @@
         }
         &:hover{
             transform: $ontop-tops-transform-scale;
-            -webkit-box-shadow: $ontop-shoodow;
-            -moz-box-shadow: $ontop-shoodow;
-            box-shadow: $ontop-shoodow;
+            .title{
+                border-top: $ontop-mian-title-border_hover;
+                background: $ontop-title-background-color-hover;
+            }
         }
     }
 
@@ -50,9 +52,9 @@
             }
             &:hover{
                 transform: $ontop-tops-transform-scale;
-                -webkit-box-shadow: $ontop-shoodow;
-                -moz-box-shadow: $ontop-shoodow;
-                box-shadow: $ontop-shoodow;
+                .title{
+                    background: $ontop-title-background-color-hover;
+                }
             }
         }
     }

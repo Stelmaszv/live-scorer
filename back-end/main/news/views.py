@@ -10,5 +10,5 @@ class Top_News(viewsets.ModelViewSet):
 class Get_news_from_category(APIView):
     serializer_class = NewsSerializer
     def get(self, request, *args, **kwargs):
-        serializer = NewsCategorySerializer(News.objects.filter(category__name=self.kwargs.get('category')), many=True)
+        serializer = NewsCategorySerializer(News.objects.filter(category__name=self.kwargs.get('category')).order_by('-views')[:7], many=True)
         return Response(data=serializer.data, status=status.HTTP_200_OK)

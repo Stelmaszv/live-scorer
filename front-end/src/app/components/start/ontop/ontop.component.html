@@ -8,7 +8,7 @@
         </div>
         <div class="col-4 tops">
             <span *ngFor="let el of news;">
-                <div class="item" *ngIf="!el.ontop">
+                <div class="item" *ngIf="el.id != mian.id">
                     <img src="{{el.photo}}">
                     <div class="title">
                         <a>{{el.title}}</a>

@@ -1,14 +1,15 @@
 from rest_framework import viewsets
 from .models import News
-from .serializers import NewsSerializer,NewsCategorySerializer
-from rest_framework import status
-from rest_framework.response import Response
-from rest_framework.views import  APIView
+from core.prototype_classes import API_prototype
+from .serializers import NewsSerializer
 class Top_News(viewsets.ModelViewSet):
     queryset = News.objects.all().order_by('-views')[:3]
     serializer_class = NewsSerializer
-class Get_news_from_category(APIView):
-    serializer_class = NewsSerializer
-    def get(self, request, *args, **kwargs):
-        serializer = NewsCategorySerializer(News.objects.filter(category__name=self.kwargs.get('category')).order_by('-views')[:7], many=True)
-        return Response(data=serializer.data, status=status.HTTP_200_OK)
+class Get_news_from_category(API_prototype):
+    def set_query_set(self):
+        self.queryset = News.objects.filter(category__name=self.kwargs.get('category')).order_by('-views')
+class Get_news_from_category_all(API_prototype):
+    on_page=1
+    def set_query_set(self):
+        self.queryset = News.objects.filter(category__name=self.kwargs.get('category')).order_by('-views')
+

@@ -9,6 +9,7 @@ urlpatterns = [
     path('',include(router.urls)),
     path('Get_news_from_category/<str:category>/',views.Get_news_from_category.as_view(),name='news'),
     path('Get_news_from_category_all/<str:category>/',views.Get_news_from_category_all.as_view(),name='news'),
+    path('Get_news_from_category_pages/<str:category>/',views.Get_news_from_category_pages.as_view(),name='news'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

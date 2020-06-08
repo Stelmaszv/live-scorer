@@ -8,13 +8,8 @@ class Top_News(viewsets.ModelViewSet):
 class Get_news_from_category(API_prototype):
     def set_query_set(self):
         self.queryset = News.objects.filter(category__name=self.kwargs.get('category')).order_by('-views')
-class Get_news_from_category_all(API_prototype):
+class Get_news_from_category_all(Get_news_from_category):
     on_page=1
-    def set_query_set(self):
-        self.queryset = News.objects.filter(category__name=self.kwargs.get('category')).order_by('-views')
-class Get_news_from_category_pages(API_prototype):
+class Get_news_from_category_pages(Get_news_from_category_all):
     return_pages=True
-    on_page = 1
-    def set_query_set(self):
-        self.queryset = News.objects.filter(category__name=self.kwargs.get('category')).order_by('-views')
 

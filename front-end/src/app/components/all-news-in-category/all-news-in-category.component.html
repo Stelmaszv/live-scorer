@@ -1,1 +1,4 @@
-<p>all-news-in-category works!</p>
+<li *ngFor="let el of news">
+    {{el.title}}
+</li>
+<button (click)="get_more_news()">Click me!</button>

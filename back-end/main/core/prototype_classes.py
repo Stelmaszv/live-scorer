@@ -33,7 +33,7 @@ class API_prototype(APIView):
     def return_pages_json(self,request):
         print(self.paginator_obj)
         pages={
-            'max':self.paginator_obj.num_pages,
-            'page':self.page
+            'max': self.paginator_obj.num_pages,
+            'page':int(self.page)
         }
         return Response(data=pages, status=status.HTTP_200_OK)

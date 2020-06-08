@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {NewsService} from '../../service/news.service'
 import { News_Model } from  '../../models/news'
 import { Pages_Model } from  '../../models/pages'
+import { ActivatedRoute,Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-all-news-in-category',
@@ -14,12 +16,14 @@ export class AllNewsInCategoryComponent implements OnInit {
   page:number;
   max:number;
   list_news:Array<any>;
-  constructor(private ns:NewsService) { }
+  category:string
+  constructor(private ns:NewsService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.category = this.route.snapshot.paramMap.get('category');
     this.page=1;
     this.list_news=[]
-    this.get_news('soccer',this.page)
+    this.get_news(this.category,this.page)
   }
 
   private get_news(category,page){
@@ -36,6 +40,6 @@ export class AllNewsInCategoryComponent implements OnInit {
   }
   get_more_news() {
     this.page=this.page+1
-    this.get_news('soccer',this.page)
+    this.get_news(this.category,this.page)
   }
 }

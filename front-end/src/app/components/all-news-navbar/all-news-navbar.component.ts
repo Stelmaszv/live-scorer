@@ -8,7 +8,7 @@ import { ActivatedRoute} from '@angular/router';
 export class AllNewsNavbarComponent implements OnInit {
   category:string
   constructor(private route: ActivatedRoute) { }
-  ligs
+  competitions
   ngOnInit(): void {
     this.sort_ligs()
     this.get_ligs()
@@ -17,7 +17,7 @@ export class AllNewsNavbarComponent implements OnInit {
   private sort_ligs(){
   }
   private get_ligs(){
-    this.ligs=['BBL','La liga','Ekstraklasa','PREMIERSHIP','PRIMERA DIVISION']
+    this.competitions=['BBL','La liga','Ekstraklasa','PREMIERSHIP','PRIMERA DIVISION']
   }
 
 }

@@ -3,4 +3,4 @@ from .models import Competitions
 class Competitions_Serializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model  = Competitions
-        fields =  ('id','name')
+        fields =  ('id','name','popular')

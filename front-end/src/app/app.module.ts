@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { OntopComponent } from './components/start/ontop/ontop.component';
 import { SectionsComponent } from './components/start/sections/sections.component';
+import { AllNewsNavbarComponent } from './components/all-news-navbar/all-news-navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +16,7 @@ import { SectionsComponent } from './components/start/sections/sections.componen
     FooterComponent,
     OntopComponent,
     SectionsComponent,
+    AllNewsNavbarComponent,
   ],
   imports: [
     BrowserModule,

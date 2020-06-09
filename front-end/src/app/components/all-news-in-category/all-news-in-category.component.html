@@ -1,3 +1,8 @@
-<li *ngFor="let el of news">
-    {{el.title}}
-</li>
+<app-all-news-navbar></app-all-news-navbar>
+<div class="container">
+    <div class="news-list">
+        <li *ngFor="let el of news">
+                <a href="#">{{el.title}}</a>
+        </li>
+    </div>
+</div>

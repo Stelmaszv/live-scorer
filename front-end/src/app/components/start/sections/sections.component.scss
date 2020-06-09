@@ -49,15 +49,6 @@
     .news_list_section{
         .news_list{
             line-height: $content_news_list_section_line-height;
-            li{
-                a{
-                    color: $content_news_list_section_color;
-                }
-                a:hover{
-                    color:$content_news_list_section__color_hover;
-                    text-decoration: none;
-                }
-            }
         }
     }
 }

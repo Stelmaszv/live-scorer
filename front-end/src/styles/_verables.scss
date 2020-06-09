@@ -1,13 +1,17 @@
+/* custom setings */ 
+$custom_a_color:rgb(1, 6, 37);
+$custom_a_color_haver:rgb(15, 161, 161);
+
 /* navbar */
-$navbarColor:rgb(195, 87, 87);
-$navbar_Brand:rgba(235, 240, 234, 0.8);
-$navbar_Brand_text:rgba(47, 133, 30, 0.8);
+$navbarColor:rgb(138, 64, 64);
+$navbar_Brand:rgba(255, 255, 255, 0.8);
+$navbar_Brand_text:rgba(205, 230, 235, 0.8);
 $btm_Font:#070707;
 $btm_background-color:blueviolet;
 $btm_border-color:aqua;
-$navbar-nav-link:rgba(185, 153, 189, 0.5);
-$navbar-nav-active:rgba(185, 153, 189, 0.5);
-$navbar-nav-hover: rgb(172, 194, 73);
+$navbar-nav-link:rgb(170, 198, 214);
+$navbar-nav-active:rgb(39, 202, 202);
+$navbar-nav-hover: $custom_a_color_haver;
 /* ontop */
 $ontop-margin-top:1.5rem;
 $ontop-margin-bottom:1.5rem;
@@ -53,6 +57,4 @@ $content_main_title_color_background_hover:rgb(124, 6, 6);
 $content_main_transform-scale:scale(1.05);
 
 $content_news_list_section_line-height:35px;
-/* custom setings */ 
-$custom_a_color:rgb(1, 6, 37);
-$custom_a_color_haver:rgb(15, 161, 161);
+

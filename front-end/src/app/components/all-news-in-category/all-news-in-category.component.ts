@@ -40,7 +40,7 @@ export class AllNewsInCategoryComponent implements OnInit {
     );
     const max_procent=5*max/100 
     if(verticalOffset>max_procent){
-      if (this.pages.page <= this.pages.max){
+      if (this.page <= 3){
           if(this.loding_click==false){
             this.get_more_news()
             document.body.scrollTop=0
@@ -52,7 +52,7 @@ export class AllNewsInCategoryComponent implements OnInit {
     this.loding_click=true
     this.ns.Get_All_News_From_Category_pages(category,page).subscribe(pages => {
        this.pages=pages
-       if (this.pages.page != this.pages.max){
+       if (this.page != 3){
           this.loding=true
           this.ns.Get_All_News_From_Category(category,page).subscribe(news => {
           for (let item of news ){

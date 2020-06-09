@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
+import { LiveScorerHtppService } from '../../service/live-scorer-htpp.service'
+import { Competition_Model } from '../../models/competitions'
 @Component({
   selector: 'app-all-news-navbar',
   templateUrl: './all-news-navbar.component.html',
@@ -7,17 +9,15 @@ import { ActivatedRoute} from '@angular/router';
 })
 export class AllNewsNavbarComponent implements OnInit {
   category:string
-  constructor(private route: ActivatedRoute) { }
-  competitions
+  constructor(private route: ActivatedRoute,private Live_Scorer:LiveScorerHtppService) { }
+  competitions:Competition_Model[]
   ngOnInit(): void {
-    this.sort_ligs()
-    this.get_ligs()
+    this.Get_Competitions()
     this.category = this.route.snapshot.paramMap.get('category');
   }
-  private sort_ligs(){
+  private Get_Competitions(){
+    this.Live_Scorer.Get_Competitions_Service().subscribe(competitions=>{
+      this.competitions=competitions
+    })
   }
-  private get_ligs(){
-    this.competitions=['BBL','La liga','Ekstraklasa','PREMIERSHIP','PRIMERA DIVISION']
-  }
-
 }

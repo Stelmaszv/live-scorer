@@ -7,9 +7,11 @@ class Top_News(viewsets.ModelViewSet):
     serializer_class = NewsSerializer
 class Get_news_from_category(API_prototype):
     def set_query_set(self):
-        self.queryset = News.objects.filter(category__name=self.kwargs.get('category')).order_by('-views')
+        self.queryset = News.objects.filter(category__name=self.kwargs.get('category')).order_by('-views')[:7]
 class Get_news_from_category_all(Get_news_from_category):
-    on_page=10
+    on_page=30
+    def set_query_set(self):
+        self.queryset = News.objects.filter(category__name=self.kwargs.get('category')).order_by('-views')
 class Get_news_from_category_pages(Get_news_from_category_all):
     return_pages=True
 

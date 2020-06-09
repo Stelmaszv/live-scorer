@@ -2,12 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {NewsService} from '../../service/news.service'
 import { News_Model } from  '../../models/news'
 import { Pages_Model } from  '../../models/pages'
-import { ActivatedRoute,Router} from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { HostListener } from '@angular/core';
-import { registerLocaleData } from '@angular/common';
-import { runInThisContext } from 'vm';
-
-
 @Component({
   selector: 'app-all-news-in-category',
   templateUrl: './all-news-in-category.component.html',
@@ -31,7 +27,9 @@ export class AllNewsInCategoryComponent implements OnInit {
     this.get_news(this.category,this.page)
   }
   @HostListener("window:scroll", []) onWindowScroll() {
-    // do some stuff here when the window is scrolled
+    this.scrool_evant()
+  }
+  private scrool_evant(){
     const verticalOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
     const max = Math.max( 
       document.body.scrollHeight, 
@@ -40,7 +38,7 @@ export class AllNewsInCategoryComponent implements OnInit {
       document.documentElement.scrollHeight, 
       document.documentElement.offsetHeight 
     );
-    const max_procent=50*max/100 
+    const max_procent=5*max/100 
     if(verticalOffset>max_procent){
       if (this.pages.page <= this.pages.max){
           if(this.loding_click==false){
@@ -67,7 +65,7 @@ export class AllNewsInCategoryComponent implements OnInit {
       }
     });
   }
-  public get_more_news() {
+  private get_more_news() {
     this.page=this.page+1
     this.get_news(this.category,this.page)
   }

@@ -2,10 +2,10 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import  APIView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from news.serializers import NewsSerializer,NewsCategorySerializer
 class API_prototype(APIView):
     on_page=None
     return_pages=False
+    many=True
     def paginate(self, request, *args, **kwargs):
         if self.on_page is not None:
             self.page = request.GET.get('page', 1)
@@ -20,7 +20,7 @@ class API_prototype(APIView):
     def set_query_set(self):
         pass
     def _API_get(self, request, *args, **kwargs):
-        serializer = NewsCategorySerializer(self.queryset, many=True)
+        serializer = self.serializer_class(self.queryset, many=self.many)
         return Response(data=serializer.data, status=status.HTTP_200_OK)
     def get(self, request, *args, **kwargs):
         self.set_query_set()
@@ -31,7 +31,6 @@ class API_prototype(APIView):
             return self._return_pages_json(request)
         return self._API_get(request)
     def _return_pages_json(self,request):
-        print(self.paginator_obj)
         pages={
             'valid':self._validPages(self.paginator_obj.num_pages,int(self.page)),
             'max': self.paginator_obj.num_pages,
@@ -42,4 +41,13 @@ class API_prototype(APIView):
         if page > max:
             return False;
         return True
+class API_prototype_get(APIView):
+    def get(self, request, *args, **kwargs):
+        self.set_query_set()
+        return self.API_get(request)
+    def API_get(self, request, *args, **kwargs):
+        serializer = self.serializer_class(self.queryset)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
+    def set_query_set(self):
+        pass
 

@@ -9,7 +9,7 @@
             <ul class="navbar-nav mr-auto">
                 <span *ngFor="let el of competitions">
                     <li class="nav-item" *ngIf="el.popular">
-                        <a class="nav-link" href="#">{{el.name}}</a>
+                        <a class="nav-link" href="show_all_news_in_compettions/{{el.name}}">{{el.name}}</a>
                     </li>
                 </span>
                 <span *ngIf="competitions.length>0">
@@ -19,7 +19,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <span *ngFor="let el of competitions">
-                                <a class="dropdown-item" href="#" *ngIf="!el.popular">{{el.name}}</a>
+                                <a class="dropdown-item" href="show_all_news_in_compettions/{{el.name}}" *ngIf="!el.popular">{{el.name}}</a>
                             </span>
                         </div>
                     </li>

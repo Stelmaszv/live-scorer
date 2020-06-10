@@ -12,6 +12,12 @@ class Get_news_from_category_all(Get_news_from_category):
     on_page=30
     def set_query_set(self):
         self.queryset = News.objects.filter(category__name=self.kwargs.get('category')).order_by('-views')
+class Get_news_from_competitions(API_prototype):
+    on_page=30
+    def set_query_set(self):
+        self.queryset = News.objects.filter(Competition__name=self.kwargs.get('competition'))
+class Get_news_from_competitions_pages(Get_news_from_competitions):
+    return_pages=True
 class Get_news_from_category_pages(Get_news_from_category_all):
     return_pages=True
 

@@ -4,6 +4,7 @@ import { StartComponent } from './components/start/start.component';
 import { AllNewsInCategoryComponent } from './components/all-news-in-category/all-news-in-category.component';
 import { ShowAllNewsInCompettionsComponent } from './components/show-all-news-in-compettions/show-all-news-in-compettions.component';
 
+
 const routes: Routes = [
   { path:'' , component:StartComponent},
   { path:'show_all_news/:category' , component:AllNewsInCategoryComponent},

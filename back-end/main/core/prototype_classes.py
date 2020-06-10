@@ -19,7 +19,7 @@ class API_prototype(APIView):
             self.paginator_obj=paginator
     def set_query_set(self):
         pass
-    def API_get(self, request, *args, **kwargs):
+    def _API_get(self, request, *args, **kwargs):
         serializer = NewsCategorySerializer(self.queryset, many=True)
         return Response(data=serializer.data, status=status.HTTP_200_OK)
     def get(self, request, *args, **kwargs):
@@ -28,12 +28,18 @@ class API_prototype(APIView):
         return self.return_respanse(request)
     def return_respanse(self,request):
         if self.return_pages:
-            return self.return_pages_json(request)
-        return self.API_get(request)
-    def return_pages_json(self,request):
+            return self._return_pages_json(request)
+        return self._API_get(request)
+    def _return_pages_json(self,request):
         print(self.paginator_obj)
         pages={
+            'valid':self._validPages(self.paginator_obj.num_pages,int(self.page)),
             'max': self.paginator_obj.num_pages,
             'page':int(self.page)
         }
         return Response(data=pages, status=status.HTTP_200_OK)
+    def _validPages(self,max,page):
+        if page > max:
+            return False;
+        return True
+

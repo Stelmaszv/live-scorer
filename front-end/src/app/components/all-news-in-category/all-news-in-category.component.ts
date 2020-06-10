@@ -52,7 +52,7 @@ export class AllNewsInCategoryComponent implements OnInit {
     this.loding_click=true
     this.ns.Get_All_News_From_Category_pages(category,page).subscribe(pages => {
        this.pages=pages
-       if (this.page != 3){
+       if (pages.valid){
           this.loding=true
           this.ns.Get_All_News_From_Category(category,page).subscribe(news => {
           for (let item of news ){

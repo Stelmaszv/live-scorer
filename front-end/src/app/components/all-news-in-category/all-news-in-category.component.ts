@@ -40,7 +40,7 @@ export class AllNewsInCategoryComponent implements OnInit {
     );
     const max_procent=5*max/100 
     if(verticalOffset>max_procent){
-      if (this.page <= 3){
+      if (this.pages.valid){
           if(this.loding_click==false){
             this.get_more_news()
             document.body.scrollTop=0

@@ -13,7 +13,7 @@ export class LiveScorerHtppService {
   public Get_Competitions_Service() :Observable<Competition_Model[]> {
     return this.http.get<Competition_Model[]>(this.competitions)
   }
-  public Get_Competition_by_name(Competition:string ) :Observable<Competition_get_Model[]> {
-    return this.http.get<Competition_get_Model[]>(this.get_competition_by_name+''+Competition)
+  public Get_Competition_by_name(Competition:string ) :Observable<Competition_get_Model> {
+    return this.http.get<Competition_get_Model>(this.get_competition_by_name+''+Competition)
   }
 }

@@ -18,7 +18,6 @@ export class AllNewsNavbarComponent implements OnInit {
   private Get_Competitions(){
     this.Live_Scorer.Get_Competitions_Service().subscribe(competitions=>{
       this.competitions=competitions
-      console.log(competitions)
     })
   }
 }

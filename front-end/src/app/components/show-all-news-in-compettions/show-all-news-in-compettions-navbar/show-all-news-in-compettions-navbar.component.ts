@@ -10,7 +10,7 @@ import { Competition_get_Model } from '../../../models/competitions_get'
 })
 export class ShowAllNewsInCompettionsNavbarComponent implements OnInit {
   compettion_name:string
-  competition_data:Competition_get_Model[]
+  competition_data:Competition_get_Model
   constructor(private route: ActivatedRoute,private Live_Scorer:LiveScorerHtppService) { }
 
   ngOnInit(): void {
@@ -20,7 +20,6 @@ export class ShowAllNewsInCompettionsNavbarComponent implements OnInit {
   private Get_compettion(){
     this.Live_Scorer.Get_Competition_by_name(this.compettion_name).subscribe(competition=>{
       this.competition_data=competition
-      console.log(competition)
     })
   }
 

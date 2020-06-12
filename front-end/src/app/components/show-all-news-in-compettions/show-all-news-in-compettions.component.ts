@@ -8,11 +8,11 @@ import { PaginatorComponent } from '../paginator/paginator.component'
 })
 export class ShowAllNewsInCompettionsComponent extends PaginatorComponent{
  
-  category:string
+  compettion:string
   protected init() : void{
-    this.category = this.route.snapshot.paramMap.get('compettion');
-    this.get_pages='Get_news_from_category_pages/'+this.category
-    this.pagination_data_get_method=this.ns.Get_All_news_By_competition(this.category,this.page)
+    this.compettion = this.route.snapshot.paramMap.get('compettion');
+    this.get_pages='Get_news_from_category_pages/'+this.compettion
+    this.pagination_data_get_method=this.ns.Get_All_news_By_competition(this.compettion,this.page)
   }
 
  

@@ -1,84 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import {NewsService} from '../../service/news.service'
-import { Pages_Service } from '../../service/pages.service'
+import { Component} from '@angular/core';
 import { News_Model } from  '../../models/news'
-import { Pages_Model } from  '../../models/pages'
-import { ActivatedRoute} from '@angular/router';
-import { HostListener } from '@angular/core';
+import { PaginatorComponent } from '../paginator/paginator.component' 
 @Component({
   selector: 'app-all-news-in-category',
   templateUrl: './all-news-in-category.component.html',
   styleUrls: ['./all-news-in-category.component.scss']
 })
-export class AllNewsInCategoryComponent implements OnInit {
-  pagination_data:Array<News_Model>;
-  pages:Pages_Model;
-  page:number;
-  max:number;
-  list_news:Array<any>;
+export class AllNewsInCategoryComponent extends PaginatorComponent {
+  
   category:string
-  loding:Boolean=false;
-  loding_click:Boolean=false;
-  get_pages:string;
-  pagination_data_get_method
-  constructor(private ns:NewsService, private route: ActivatedRoute,private Pages_Service:Pages_Service) { }
+  pagination_data:Array<News_Model>;
 
-  ngOnInit(): void {
+  protected init() : void{
     this.category = this.route.snapshot.paramMap.get('category');
     this.page=1;
     this.get_pages='Get_news_from_category_pages/'+this.category
-    this.list_news=[]
     this.pagination_data_get_method=this.ns.Get_All_News_From_Category(this.category,this.page)
-    this.get_data(this.page)
-  }
-
-
-
-  @HostListener("window:scroll", []) onWindowScroll() {
-    this.scrool_evant()
-  }
-
-
-  private scrool_evant(){
-    const verticalOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
-    const max = Math.max( 
-      document.body.scrollHeight, 
-      document.body.offsetHeight,
-      document.documentElement.clientHeight, 
-      document.documentElement.scrollHeight, 
-      document.documentElement.offsetHeight 
-    );
-    const max_procent=5*max/100 
-    if(verticalOffset>max_procent){
-      if (this.pages.valid){
-          if(this.loding_click==false){
-            this.get_more_news()
-            document.body.scrollTop=0
-          }
-      }
-    }
-  }
-
-  private get_data(page){
-    this.loding_click=true
-    this.Pages_Service.get_pages(this.get_pages,page).subscribe(pages => {
-       this.pages=pages
-       if (this.pages.valid){
-          this.loding=true
-          this.pagination_data_get_method.subscribe(news => {
-          for (let item of news ){
-            this.list_news.push(item)
-          }
-          this.pagination_data=this.list_news
-          this.loding=false;
-          this.loding_click=false;
-        });
-      }
-    });
-  }
-  
-  private get_more_news() {
-    this.page=this.page+1
-    this.get_data(this.page)
   }
 }

@@ -23,7 +23,7 @@ export class NewsService {
   public Get_All_News_From_Category(category,page) :Observable<News_Model[]> {
     return this.http.get<News_Model[]>(this.All_From_ctegory_url+''+category+'?page='+page)
   }
-  public Get_All_News_From_Category_pages(category,page) :Observable<Pages_Model[]> {
-    return this.http.get<Pages_Model[]>(this.Pages_From_ctegory_url+''+category+'?page='+page)
+  public Get_All_News_From_Category_pages(category,page) :Observable<Pages_Model> {
+    return this.http.get<Pages_Model>(this.Pages_From_ctegory_url+''+category+'?page='+page)
   }
 }

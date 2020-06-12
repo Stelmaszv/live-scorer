@@ -4,6 +4,7 @@ import { News_Model } from  '../../models/news'
 import { Pages_Model } from  '../../models/pages'
 import { ActivatedRoute} from '@angular/router';
 import { HostListener } from '@angular/core';
+import { TouchSequence } from 'selenium-webdriver';
 @Component({
   selector: 'app-all-news-in-category',
   templateUrl: './all-news-in-category.component.html',
@@ -11,7 +12,7 @@ import { HostListener } from '@angular/core';
 })
 export class AllNewsInCategoryComponent implements OnInit {
   news:Array<News_Model>;
-  pages:Pages_Model[];
+  pages:Pages_Model;
   page:number;
   max:number;
   list_news:Array<any>;
@@ -40,7 +41,7 @@ export class AllNewsInCategoryComponent implements OnInit {
     );
     const max_procent=5*max/100 
     if(verticalOffset>max_procent){
-      if (true){
+      if (this.pages.valid){
           if(this.loding_click==false){
             this.get_more_news()
             document.body.scrollTop=0
@@ -52,7 +53,7 @@ export class AllNewsInCategoryComponent implements OnInit {
     this.loding_click=true
     this.ns.Get_All_News_From_Category_pages(category,page).subscribe(pages => {
        this.pages=pages
-       if (true){
+       if (this.pages.valid){
           this.loding=true
           this.ns.Get_All_News_From_Category(category,page).subscribe(news => {
           for (let item of news ){

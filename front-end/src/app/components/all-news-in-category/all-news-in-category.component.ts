@@ -11,7 +11,7 @@ import { HostListener } from '@angular/core';
   styleUrls: ['./all-news-in-category.component.scss']
 })
 export class AllNewsInCategoryComponent implements OnInit {
-  news:Array<News_Model>;
+  pagination_data:Array<News_Model>;
   pages:Pages_Model;
   page:number;
   max:number;
@@ -19,17 +19,26 @@ export class AllNewsInCategoryComponent implements OnInit {
   category:string
   loding:Boolean=false;
   loding_click:Boolean=false;
+  get_pages:string;
+  pagination_data_get_method
   constructor(private ns:NewsService, private route: ActivatedRoute,private Pages_Service:Pages_Service) { }
 
   ngOnInit(): void {
     this.category = this.route.snapshot.paramMap.get('category');
     this.page=1;
+    this.get_pages='Get_news_from_category_pages/'+this.category
     this.list_news=[]
-    this.get_news(this.category,this.page)
+    this.pagination_data_get_method=this.ns.Get_All_News_From_Category(this.category,this.page)
+    this.get_data(this.page)
   }
+
+
+
   @HostListener("window:scroll", []) onWindowScroll() {
     this.scrool_evant()
   }
+
+
   private scrool_evant(){
     const verticalOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
     const max = Math.max( 
@@ -49,25 +58,27 @@ export class AllNewsInCategoryComponent implements OnInit {
       }
     }
   }
-  private get_news(category,page){
+
+  private get_data(page){
     this.loding_click=true
-    this.Pages_Service.get_pages('Get_news_from_category_pages/'+this.category,page).subscribe(pages => {
+    this.Pages_Service.get_pages(this.get_pages,page).subscribe(pages => {
        this.pages=pages
        if (this.pages.valid){
           this.loding=true
-          this.ns.Get_All_News_From_Category(category,page).subscribe(news => {
+          this.pagination_data_get_method.subscribe(news => {
           for (let item of news ){
             this.list_news.push(item)
           }
-          this.news=this.list_news
+          this.pagination_data=this.list_news
           this.loding=false;
           this.loding_click=false;
         });
       }
     });
   }
+  
   private get_more_news() {
     this.page=this.page+1
-    this.get_news(this.category,this.page)
+    this.get_data(this.page)
   }
 }

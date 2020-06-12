@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {NewsService} from '../../service/news.service'
+import { Pages_Service } from '../../service/pages.service'
 import { News_Model } from  '../../models/news'
 import { Pages_Model } from  '../../models/pages'
 import { ActivatedRoute} from '@angular/router';
 import { HostListener } from '@angular/core';
-import { TouchSequence } from 'selenium-webdriver';
 @Component({
   selector: 'app-all-news-in-category',
   templateUrl: './all-news-in-category.component.html',
@@ -19,7 +19,7 @@ export class AllNewsInCategoryComponent implements OnInit {
   category:string
   loding:Boolean=false;
   loding_click:Boolean=false;
-  constructor(private ns:NewsService, private route: ActivatedRoute) { }
+  constructor(private ns:NewsService, private route: ActivatedRoute,private Pages_Service:Pages_Service) { }
 
   ngOnInit(): void {
     this.category = this.route.snapshot.paramMap.get('category');
@@ -51,7 +51,7 @@ export class AllNewsInCategoryComponent implements OnInit {
   }
   private get_news(category,page){
     this.loding_click=true
-    this.ns.Get_All_News_From_Category_pages(category,page).subscribe(pages => {
+    this.Pages_Service.get_pages('Get_news_from_category_pages/'+this.category,page).subscribe(pages => {
        this.pages=pages
        if (this.pages.valid){
           this.loding=true

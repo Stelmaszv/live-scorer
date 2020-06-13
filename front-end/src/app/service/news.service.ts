@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { News_Model } from '../models/news';
+import { Get_News_Model } from '../models/get_news'
 import { HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 @Injectable({
@@ -24,7 +25,7 @@ export class NewsService {
   public Get_All_news_By_competition(competition,page) :Observable<News_Model[]> {
     return this.http.get<News_Model[]>(this.Get_news_from_competitions_url+''+competition+'?page='+page)
   }
-  public Get_news_service(id) :Observable<News_Model> {
-    return this.http.get<News_Model>(this.Get_News_url+''+id)
+  public Get_news_service(id) :Observable<Get_News_Model> {
+    return this.http.get<Get_News_Model>(this.Get_News_url+''+id)
   }
 }

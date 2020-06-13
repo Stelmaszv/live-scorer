@@ -15,14 +15,19 @@ export class ShowAllNewsInCompettionsNavbarComponent implements OnInit {
   constructor(private route: ActivatedRoute,private Live_Scorer:LiveScorerHtppService) { }
 
   ngOnInit(): void {
-    this.compettion_name=(this.route.snapshot.paramMap.get('compettion') === null) ? 'none' :this.route.snapshot.paramMap.get('compettion');
+    this.compettion_name=(this.route.snapshot.paramMap.get('compettion') === null) ? 'none' : this.route.snapshot.paramMap.get('compettion');
     this.Get_compettion()
   }
-  private Get_compettion(){
-    let method=this.Live_Scorer.Get_Competition(this.id,this.compettion_name)
-    method.subscribe(competition=>{
+
+  private Get_compettion() : void
+  {
+    this.Live_Scorer.Get_Competition(this.id,this.compettion_name).subscribe(competition=>{
       this.competition_data=competition
+      this.Get_Competitions_from_Country(this.competition_data.Country)
     })
+  }
+  private Get_Competitions_from_Country(Country :string){
+
   }
 
 }

@@ -8,7 +8,7 @@ import { Competition_get_Model } from '../models/competitions_get'
 })
 export class LiveScorerHtppService {
   competitions:string = 'http://127.0.0.1:8000/competitions/';
-  get_competition_by_name:string = 'http://127.0.0.1:8000/get_competition_by_name/';
+  get_competition_by_name:string = 'http://127.0.0.1:8000/Get_competition_by_name/';
   constructor(private http:HttpClient) { }
   public Get_Competitions_Service() :Observable<Competition_Model[]> {
     return this.http.get<Competition_Model[]>(this.competitions)

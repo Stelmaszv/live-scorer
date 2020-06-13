@@ -13,4 +13,9 @@ class Get_competition_by_name(API_prototype_get):
             self.queryset = Competitions.objects.get(id=self.kwargs.get('id'))
         else:
             self.queryset = Competitions.objects.get(name=self.kwargs.get('competition'))
+class Get_Competitions_from_Country(API_prototype):
+    serializer_class = Competitions_Serializer;
+    def set_query_set(self):
+        self.queryset = Competitions.objects.filter(Country=self.kwargs.get('country'))
+
 

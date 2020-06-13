@@ -9,7 +9,6 @@ import { OntopComponent } from './components/start/ontop/ontop.component';
 import { SectionsComponent } from './components/start/sections/sections.component';
 import { AllNewsNavbarComponent } from './components/all-news-navbar/all-news-navbar.component';
 import { ShowAllNewsInCompettionsNavbarComponent } from './components/show-all-news-in-compettions/show-all-news-in-compettions-navbar/show-all-news-in-compettions-navbar.component';
-import { PaginatorComponent } from './components/paginator/paginator.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +19,6 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     SectionsComponent,
     AllNewsNavbarComponent,
     ShowAllNewsInCompettionsNavbarComponent,
-    PaginatorComponent,
   ],
   imports: [
     BrowserModule,

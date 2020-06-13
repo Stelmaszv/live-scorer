@@ -7,14 +7,17 @@ import { Competition_get_Model } from '../models/competitions_get'
   providedIn: 'root'
 })
 export class LiveScorerHtppService {
-  competitions:string = 'http://127.0.0.1:8000/competitions/';
-  get_competition_by_name:string = 'http://127.0.0.1:8000/Get_competition_by_name/';
+  Get_competitions:string = 'http://127.0.0.1:8000/competitions/';
+  Get_competition_url:string = 'http://127.0.0.1:8000/Get_competition_by_name/';
+  Get_Competitions_from_Country_service_url:string='http://127.0.0.1:8000/Get_Competitions_from_Country/'
   constructor(private http:HttpClient) { }
   public Get_Competitions_Service() :Observable<Competition_Model[]> {
-    return this.http.get<Competition_Model[]>(this.competitions)
+    return this.http.get<Competition_Model[]>(this.Get_competitions)
   }
   public Get_Competition(id:number,Competition:string ) :Observable<Competition_get_Model> {
-    console.log(this.get_competition_by_name+''+Competition+'/'+id)
-    return this.http.get<Competition_get_Model>(this.get_competition_by_name+''+Competition+'/'+id)
+    return this.http.get<Competition_get_Model>(this.Get_competition_url+''+Competition+'/'+id)
+  }
+  public Get_Competitions_from_Country_service(Country:string ) :Observable<Competition_Model[]> {
+    return this.http.get<Competition_Model[]>(this.Get_Competitions_from_Country_service_url+''+Country)
   }
 }

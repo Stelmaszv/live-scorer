@@ -13,14 +13,12 @@
                             More compettions in {{competition_data.Country}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <span *ngFor="let el of Competitions;">
+                                <a class="dropdown-item" *ngIf="el.name != competition_data.name" href="show_all_news_in_compettions/{{el.name}}">{{el.name}}</a>
+                            </span>
                         </div>
                     </li>
             </ul>
         </div>
     </div>
 </nav>
-

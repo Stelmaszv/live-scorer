@@ -11,4 +11,4 @@ class Competitions_Serializer_get(serializers.BaseSerializer):
 class Competitions_Serializer(serializers.ModelSerializer):
     class Meta:
         model  = Competitions
-        fields =  ('id','name','popular')
+        fields =  ('id','name','popular','Country')

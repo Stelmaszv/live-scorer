@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-on-top-in-category',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./on-top-in-category.component.scss']
 })
 export class OnTopInCategoryComponent implements OnInit {
-
+  @Input() category_id:number;
   constructor() { }
 
   ngOnInit(): void {

@@ -1,4 +1,18 @@
-<app-show-all-news-in-compettions-navbar id={{news.Competition}} ></app-show-all-news-in-compettions-navbar>
-<app-content-section></app-content-section>
-<app-on-top-in-category></app-on-top-in-category>
-<app-content-section></app-content-section>
+<app-show-all-news-in-compettions-navbar id="{{news.Competition}}" ></app-show-all-news-in-compettions-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <app-content-section data="{{news}}"></app-content-section>
+        </div>
+        <div class="col-4">
+            <app-on-top-in-category category_id="{{news.category}}"></app-on-top-in-category>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-2 col-8">
+        <app-coments id="{{news.Competition}}"></app-coments>
+        </div>
+    </div>
+</div>
+
+

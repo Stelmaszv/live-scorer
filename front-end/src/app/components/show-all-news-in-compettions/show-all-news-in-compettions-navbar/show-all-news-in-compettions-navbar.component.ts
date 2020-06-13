@@ -23,10 +23,11 @@ export class ShowAllNewsInCompettionsNavbarComponent implements OnInit {
   {
     this.Live_Scorer.Get_Competition(this.id,this.compettion_name).subscribe(competition=>{
       this.competition_data=competition
-      this.Get_Competitions_from_Country(this.competition_data.Country)
+      console.log(this.competition_data.Country)
+      this.Get_Competitions_from_Country()
     })
   }
-  private Get_Competitions_from_Country(Country :string){
+  private Get_Competitions_from_Country(){
 
   }
 

@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { StartComponent } from './components/start/start.component';
 import { AllNewsInCategoryComponent } from './components/all-news-in-category/all-news-in-category.component';
 import { ShowAllNewsInCompettionsComponent } from './components/show-all-news-in-compettions/show-all-news-in-compettions.component';
-
+import { GetNewsComponent } from './components/get-news/get-news.component'
 
 const routes: Routes = [
   { path:'' , component:StartComponent},
   { path:'show_all_news/:category' , component:AllNewsInCategoryComponent},
   { path:'show_all_news_in_compettions/:compettion' , component:ShowAllNewsInCompettionsComponent},
+  { path:'get_news/:id' , component:GetNewsComponent}
 ];
 
 @NgModule({
@@ -16,4 +17,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents=[StartComponent,AllNewsInCategoryComponent,ShowAllNewsInCompettionsComponent]
+export const routingComponents=[StartComponent,AllNewsInCategoryComponent,ShowAllNewsInCompettionsComponent,GetNewsComponent]

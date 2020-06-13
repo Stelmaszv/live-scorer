@@ -1,7 +1,7 @@
 <div class="ontop">
     <div class="row">
         <div class="col-8 main">
-            <img src="{{mian.photo}}">
+            <img src="http://127.0.0.1:8000{{mian.photo}}">
             <div class="title">
                 <a>{{mian.title}}</a>
             </div>
@@ -9,7 +9,7 @@
         <div class="col-4 tops">
             <span *ngFor="let el of news;">
                 <div class="item" *ngIf="el.id != mian.id">
-                    <img src="{{el.photo}}">
+                    <img src="http://127.0.0.1:8000{{el.photo}}">
                     <div class="title">
                         <a>{{el.title}}</a>
                     </div>

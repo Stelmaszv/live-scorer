@@ -2,9 +2,15 @@ from rest_framework import viewsets
 from .models import News
 from core.prototype_classes import API_prototype
 from .serializers import NewsSerializer
-class Top_News(viewsets.ModelViewSet):
-    queryset = News.objects.all().order_by('-views')[:3]
+class Get_Top_News(API_prototype):
     serializer_class = NewsSerializer
+    def set_query_set(self):
+        self.queryset = News.objects.all()[:3]
+class Get_News(API_prototype):
+    serializer_class = NewsSerializer
+    many=False
+    def set_query_set(self):
+        self.queryset = News.objects.get(id=23)
 class Get_news_from_category(API_prototype):
     serializer_class = NewsSerializer
     def set_query_set(self):

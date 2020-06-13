@@ -6,7 +6,8 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class NewsService {
-  Top_News_url:string = 'http://127.0.0.1:8000/news/';
+  Top_News_url:string = 'http://127.0.0.1:8000/Get_top_news/';
+  Get_News_url:string = 'http://127.0.0.1:8000/Get_News/';
   From_category_url:string = 'http://127.0.0.1:8000/Get_news_from_category/';
   All_From_ctegory_url:string = 'http://127.0.0.1:8000/Get_news_from_category_all/';
   Get_news_from_competitions_url='http://127.0.0.1:8000/Get_news_from_competitions/'
@@ -22,5 +23,8 @@ export class NewsService {
   }
   public Get_All_news_By_competition(competition,page) :Observable<News_Model[]> {
     return this.http.get<News_Model[]>(this.Get_news_from_competitions_url+''+competition+'?page='+page)
+  }
+  public Get_news_service(id) :Observable<News_Model> {
+    return this.http.get<News_Model>(this.Get_News_url+''+id)
   }
 }

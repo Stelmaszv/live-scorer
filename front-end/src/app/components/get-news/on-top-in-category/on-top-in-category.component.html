@@ -5,6 +5,14 @@
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="Top_Category" role="tabpanel" aria-labelledby="Top_Category-tab">Top Category</div>
-  <div class="tab-pane fade" id="Top_Competition" role="tabpanel" aria-labelledby="Top_Competition-tab">Top Competition</div>
+  <div class="tab-pane fade show active" id="Top_Category" role="tabpanel" aria-labelledby="Top_Category-tab">
+    <div *ngFor="let el of Get_top_news_in_Category_loop;" class="top-list">
+          <a href="get_news/{{el.id}}">{{el.title}}</a>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="Top_Competition" role="tabpanel" aria-labelledby="Top_Competition-tab">
+      <div *ngFor="let el of Get_top_news_in_Competition_loop;" class="top-list">
+        <a href="get_news/{{el.id}}">{{el.title}}</a>
+      </div>
+  </div>
 </div>

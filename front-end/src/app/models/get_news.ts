@@ -6,4 +6,6 @@ export class Get_News_Model {
     Competition:number;
     description:string;
     category:number;
+    author:number;
+    created:string;
 }

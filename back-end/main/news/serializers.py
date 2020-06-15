@@ -4,7 +4,7 @@ from rest_framework.serializers import  ModelSerializer
 class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model  = News
-        fields =  ('id','title','photo','views','Competition','category','description')
+        fields =  ('id','title','photo','views','Competition','category','description','author','created')
 class NewsCategorySerializer(ModelSerializer):
     class Meta:
         model  = News

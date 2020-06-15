@@ -1,9 +1,35 @@
 from rest_framework import serializers
-from .models import News
+from .models import News,Coments
 from liveScorer.models import Competitions
 from rest_framework.serializers import  ModelSerializer
 from liveScorer.serializers import Competitions_Serializer_get
 from django.contrib.auth.models import User
+class abstract_base_serializer(serializers.BaseSerializer):
+    def to_representation(self, instance):
+        return {
+        }
+    def _get_serializer(self,get_serializer,field,many=False):
+        JSON = get_serializer(field,many=many)
+        return JSON.data
+class ComentSerializer(abstract_base_serializer):
+    def to_representation(self, instance):
+        return {
+            'id': instance.id,
+            'content': instance.content,
+            'created': instance.created,
+            'author': self._get_serializer(UserSerializer, instance.author),
+        }
+class GetNewsSerializer(abstract_base_serializer):
+    def to_representation(self, instance):
+        return {
+            'id': instance.id,
+            'title':instance.title,
+            'photo': instance.photo.url,
+            'views': instance.views,
+            'Competition':self._get_serializer(Competitions_Serializer_get,instance.Competition),
+            'author': self._get_serializer(UserSerializer, instance.author),
+            'coments':self._get_serializer(ComentSerializer,instance.coments,True),
+        }
 class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model  = News
@@ -16,18 +42,5 @@ class NewsCategorySerializer(ModelSerializer):
     class Meta:
         model  = News
         fields =  ('id','title','photo','views','description')
-class GetNewsSerializer(serializers.BaseSerializer):
-    def to_representation(self, instance):
-        return {
-            'id': instance.id,
-            'title':instance.title,
-            'photo': instance.photo.url,
-            'views': instance.views,
-            'Competition':self._get_serializer(Competitions_Serializer_get,instance.Competition),
-            'author': self._get_serializer(UserSerializer, instance.author),
-        }
-    def _get_serializer(self,get_serializer,field,many=False):
-        JSON = get_serializer(field,many=many)
-        return JSON.data
 
 

@@ -1,5 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+class Coments(models.Model):
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    content = models.TextField(null=True, blank=True);
+    created = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    def __str__(self):
+        return  self.content
 class Category(models.Model):
     name = models.CharField(max_length=50)
     def __str__(self):
@@ -13,5 +19,6 @@ class News(models.Model):
     description = models.TextField(null=True, blank=True);
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True, blank=True,null=True)
+    coments = models.ManyToManyField(Coments)
     def __str__(self):
         return  self.title

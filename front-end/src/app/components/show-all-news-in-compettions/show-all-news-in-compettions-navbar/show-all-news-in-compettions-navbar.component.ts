@@ -18,6 +18,7 @@ export class ShowAllNewsInCompettionsNavbarComponent implements OnInit {
   constructor(private route: ActivatedRoute,private Live_Scorer:LiveScorerHtppService) { }
 
   ngOnInit(): void {
+
     this.compettion_name=(this.route.snapshot.paramMap.get('compettion') === null) ? 'none' : this.route.snapshot.paramMap.get('compettion');
     this.Get_compettion()
   }

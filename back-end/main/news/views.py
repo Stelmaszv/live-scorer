@@ -10,7 +10,7 @@ class Get_News(API_prototype):
     serializer_class = NewsSerializer
     many=False
     def set_query_set(self):
-        self.queryset = News.objects.get(id=23)
+        self.queryset = News.objects.get(id=self.kwargs.get('id'))
 class Get_news_from_category(API_prototype):
     serializer_class = NewsSerializer
     def set_query_set(self):

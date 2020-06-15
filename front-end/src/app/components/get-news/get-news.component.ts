@@ -8,7 +8,7 @@ import { ActivatedRoute} from '@angular/router';
   styleUrls: ['./get-news.component.scss']
 })
 export class GetNewsComponent implements OnInit {
-  news:Get_News_Model
+  news:Get_News_Model;
   id:string;
   news_jason:string
   constructor(private route: ActivatedRoute,private ns:NewsService) { }

@@ -7,12 +7,12 @@ import { ThrowStmt } from '@angular/compiler';
   styleUrls: ['./content-section.component.scss']
 })
 export class ContentSectionComponent implements OnInit {
-  @Input() data:Get_News_Model;
+  @Input() data:string;
+  data_parse:Get_News_Model;
   constructor() { }
 
   ngOnInit(): void {
-    this.data = JSON.parse(this.data);
-    console.log(this.data)
+    this.data_parse = JSON.parse(this.data);
   }
 
 }

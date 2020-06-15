@@ -1,19 +1,19 @@
 <div class="content_news">
     <div class="title font-weight-bold">
-        {{data.title}}
+        {{data_parse.title}}
     </div>
-    <ng-template [ngIf]="!data.photo">
+    <ng-template [ngIf]="!data_parse.photo">
         <div class="content">
-            {{data.description}}
+            {{data_parse.description}}
         </div>
     </ng-template>
-    <ng-template [ngIf]="data.photo">
+    <ng-template [ngIf]="data_parse.photo">
         <div class="content">
-            <img src="http://127.0.0.1:8000{{data.photo}}">
-            <div clss="text font-weight-normal">{{data.description}}</div>
+            <img src="http://127.0.0.1:8000{{data_parse.photo}}">
+            <div clss="text font-weight-normal">{{data_parse.description}}</div>
         </div>
     </ng-template>
     <blockquote class="blockquote text-right">
-        <footer class="blockquote-footer">{{data.author}} <cite title="Source Title">{{data.created | date }}</cite></footer>
+        <footer class="blockquote-footer">{{data_parse.author.username}} <cite title="Source Title">{{data_parse.created | date }}</cite></footer>
     </blockquote>
 </div>

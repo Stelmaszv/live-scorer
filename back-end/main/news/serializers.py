@@ -24,8 +24,10 @@ class GetNewsSerializer(abstract_base_serializer):
         return {
             'id': instance.id,
             'title':instance.title,
+            'description':instance.description,
             'photo': instance.photo.url,
             'views': instance.views,
+            'created': instance.created,
             'Competition':self._get_serializer(Competitions_Serializer_get,instance.Competition),
             'author': self._get_serializer(UserSerializer, instance.author),
             'coments':self._get_serializer(ComentSerializer,instance.coments,True),

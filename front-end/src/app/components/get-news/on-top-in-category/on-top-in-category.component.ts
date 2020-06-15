@@ -6,10 +6,12 @@ import { Component, OnInit,Input } from '@angular/core';
   styleUrls: ['./on-top-in-category.component.scss']
 })
 export class OnTopInCategoryComponent implements OnInit {
-  @Input() category_id:number;
+  @Input() Competition_id:number;
+  @Input() Category_id:number;
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.Competition_id)
   }
 
 }

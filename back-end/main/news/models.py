@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(max_length=50)
     def __str__(self):
@@ -10,5 +11,7 @@ class News(models.Model):
     Competition = models.ForeignKey(to='liveScorer.Competitions',on_delete=models.SET_NULL,null=True,blank=True,related_name='compettion')
     category = models.ForeignKey(to='news.Category',on_delete=models.SET_NULL,null=True,blank=True,related_name='category')
     description = models.TextField(null=True, blank=True);
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True, blank=True,null=True)
     def __str__(self):
         return  self.title

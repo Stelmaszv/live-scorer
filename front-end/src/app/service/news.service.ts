@@ -12,6 +12,7 @@ export class NewsService {
   From_category_url:string = 'http://127.0.0.1:8000/Get_news_from_category/';
   All_From_ctegory_url:string = 'http://127.0.0.1:8000/Get_news_from_category_all/';
   Get_news_from_competitions_url='http://127.0.0.1:8000/Get_news_from_competitions/'
+  Get_top_news_in_Category_url='http://127.0.0.1:8000/Get_top_news_in_Category/'
   constructor(private http:HttpClient) { }
   public Get_Top_News() :Observable<News_Model[]> {
     return this.http.get<News_Model[]>(this.Top_News_url)
@@ -27,5 +28,11 @@ export class NewsService {
   }
   public Get_news_service(id) :Observable<Get_News_Model>{
     return this.http.get<Get_News_Model>(this.Get_News_url+''+id)
+  }
+  public Get_top_news_in_Competition_service(id : number) :Observable<Get_News_Model[]>{
+    return this.http.get<Get_News_Model[]>(this.Get_news_from_competitions_url+''+id)
+  }
+  public Get_top_news_in_Category_service(id : number) :Observable<Get_News_Model[]>{
+    return this.http.get<Get_News_Model[]>(this.Get_top_news_in_Category_url+''+id)
   }
 }

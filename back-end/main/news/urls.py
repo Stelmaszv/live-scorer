@@ -11,6 +11,8 @@ urlpatterns = [
     path('Get_news_from_competitions/<str:competition>/',views.Get_news_from_competitions.as_view(),name='competition'),
     path('Get_news_from_category_pages/<str:category>/',views.Get_news_from_category_pages.as_view(),name='category_pages'),
     path('Get_news_from_competition_pages/<str:competition>/',views.Get_news_from_competitions_pages.as_view(),name='competition_pages'),
+    path('Get_top_news_in_Category/<int:category_id>/',views.Get_top_news_in_Category.as_view(),name="top news in category"),
+    path('Get_top_news_in_Competition/<int:competition_id>/',views.Get_top_news_in_Competition.as_view(),name="top news in ccompetition")
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

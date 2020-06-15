@@ -19,3 +19,5 @@ class Get_Competitions_from_Country(API_prototype):
         self.queryset = Competitions.objects.filter(Country__name=self.kwargs.get('country'))
 
 
+
+

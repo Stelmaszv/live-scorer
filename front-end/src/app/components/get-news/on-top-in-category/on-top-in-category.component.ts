@@ -11,7 +11,7 @@ export class OnTopInCategoryComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.Competition_id)
+    console.log(this.Category_id)
   }
 
 }

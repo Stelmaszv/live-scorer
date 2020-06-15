@@ -28,4 +28,11 @@ class Get_news_from_competitions_pages(Get_news_from_competitions):
     return_pages=True
 class Get_news_from_category_pages(Get_news_from_category_all):
     return_pages=True
-
+class Get_top_news_in_Category(API_prototype):
+    serializer_class=NewsSerializer
+    def set_query_set(self):
+        self.queryset = News.objects.filter(category__id=self.kwargs.get('category_id')).order_by('-views')
+class Get_top_news_in_Competition(API_prototype):
+    serializer_class=NewsSerializer
+    def set_query_set(self):
+        self.queryset = News.objects.filter(Competition__id=self.kwargs.get('competition_id')).order_by('-views')

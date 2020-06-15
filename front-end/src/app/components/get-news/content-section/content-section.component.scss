@@ -1,5 +1,19 @@
 .content_news{
-    h2{
+    padding-right: 2em;
+    .title{
         justify-content: center;
+        font-size: 2em;
+        margin: 5px;
+    }
+    .content{
+        margin-top: 10px;
+        text-indent: 50px;
+        line-height: 40px;
+        text-align: justify;
+        img{
+            float: left;
+            padding: 1.2em;
+            width: 350px;
+        }
     }
 }

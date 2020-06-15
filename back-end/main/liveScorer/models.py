@@ -9,6 +9,5 @@ class Competitions(models.Model):
     popular = models.BooleanField(default=False)
     Country = models.ForeignKey(to='liveScorer.Country', on_delete=models.SET_NULL, null=True, blank=True,
                                  related_name='Country')
-    description = models.TextField(null=True, blank=True);
     def __str__(self):
         return  self.name

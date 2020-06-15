@@ -1,5 +1,19 @@
 <div class="content_news">
-    <div class="row justify-content-center">
-        <h1>{{data.title}}</h1>
+    <div class="title font-weight-bold">
+        {{data.title}}
     </div>
+    <ng-template [ngIf]="!data.photo">
+        <div class="content">
+            {{data.description}}
+        </div>
+    </ng-template>
+    <ng-template [ngIf]="data.photo">
+        <div class="content">
+            <img src="http://127.0.0.1:8000{{data.photo}}">
+            <div clss="text font-weight-normal">{{data.description}}</div>
+        </div>
+    </ng-template>
+    <blockquote class="blockquote text-right">
+        <footer class="blockquote-footer">Stelmaszv <cite title="Source Title">15:06:2020</cite></footer>
+    </blockquote>
 </div>

@@ -4,5 +4,6 @@ export class Get_News_Model {
     photo:string;
     views:number;
     Competition:number;
+    description:string;
     category:number;
 }

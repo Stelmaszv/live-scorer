@@ -9,5 +9,6 @@ class News(models.Model):
     views = models.IntegerField(default=0)
     Competition = models.ForeignKey(to='liveScorer.Competitions',on_delete=models.SET_NULL,null=True,blank=True,related_name='compettion')
     category = models.ForeignKey(to='news.Category',on_delete=models.SET_NULL,null=True,blank=True,related_name='category')
+    description = models.TextField(null=True, blank=True);
     def __str__(self):
         return  self.title

@@ -4,7 +4,6 @@ from liveScorer.models import Competitions
 from rest_framework.serializers import  ModelSerializer
 from liveScorer.serializers import Competitions_Serializer_get
 from django.contrib.auth.models import User
-from django.core.paginator import Paginator
 class abstract_base_serializer(serializers.BaseSerializer):
     def to_representation(self, instance):
         return {
@@ -19,6 +18,14 @@ class ComentSerializer(abstract_base_serializer):
             'content': instance.content,
             'created': instance.created,
             'author': self._get_serializer(UserSerializer, instance.author),
+        }
+class ComentsSerializer(abstract_base_serializer):
+    def to_representation(self, instance):
+        return {
+            'author'  : self._get_serializer(UserSerializer, instance.author),
+            'content': instance.content,
+            'creared': instance.created,
+            'id':instance.id
         }
 class GetNewsSerializer(abstract_base_serializer):
     def to_representation(self, instance):
@@ -44,5 +51,3 @@ class NewsCategorySerializer(ModelSerializer):
     class Meta:
         model  = News
         fields =  ('id','title','photo','views','description')
-
-

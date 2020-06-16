@@ -49,9 +49,7 @@ export abstract class PaginatorComponent implements OnInit {
         });
       }
     });
-
   }
-  
   protected scrool_evant() : void 
   {
     const verticalOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
@@ -65,6 +63,7 @@ export abstract class PaginatorComponent implements OnInit {
 
     const max_procent=5*max/100 
     if(verticalOffset>max_procent){
+      console.log(this.pages.valid)
       if (this.pages.valid){
           if(!this.loding){
             this.get_more()

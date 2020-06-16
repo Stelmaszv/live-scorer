@@ -8,8 +8,6 @@ import { Get_News_Model } from '../../../models/get_news'
 export class ContentSectionComponent implements OnInit {
   @Input() data:string;
   data_parse:Get_News_Model;
-  constructor() { }
-
   ngOnInit(): void {
     this.data_parse = JSON.parse(this.data);
   }

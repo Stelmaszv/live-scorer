@@ -12,6 +12,7 @@ import { ShowAllNewsInCompettionsNavbarComponent } from './components/show-all-n
 import { ContentSectionComponent } from './components/get-news/content-section/content-section.component';
 import { OnTopInCategoryComponent } from './components/get-news/on-top-in-category/on-top-in-category.component';
 import { ComentsComponent } from './components/get-news/coments/coments.component';
+import { LenghtLimitPipePipe } from './pipe/lenght-limit-pipe.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { ComentsComponent } from './components/get-news/coments/coments.componen
     ContentSectionComponent,
     OnTopInCategoryComponent,
     ComentsComponent,
+    LenghtLimitPipePipe
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,4 @@
-import { Component, OnInit ,Input } from '@angular/core';
-import {Get_News_Model } from '../../../models/get_news'
-import {NewsService} from '../../../service/news.service'
+import { Component, Input } from '@angular/core';
 import {Coments_Model} from '../../../models/coments'
 import { PaginatorComponent } from '../../../components/paginator/paginator.component' 
 @Component({

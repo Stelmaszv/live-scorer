@@ -7,7 +7,6 @@ import { News_Model } from  '../../models/news'
   styleUrls: ['./all-news-in-category.component.scss']
 })
 export class AllNewsInCategoryComponent extends PaginatorComponent {
-  
   category:string
   pagination_data:Array<News_Model>;
   protected init() : void{

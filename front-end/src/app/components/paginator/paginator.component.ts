@@ -17,7 +17,7 @@ export abstract class PaginatorComponent implements OnInit {
   loding:Boolean=false;
   pagination_data_get_method
   list:Array<any>;
-  pagination_data:Array<News_Model>;
+  pagination_data;
   page:number;
   constructor(protected ns:NewsService, protected route: ActivatedRoute,protected Pages_Service:Pages_Service) { }
   ngOnInit(): void {

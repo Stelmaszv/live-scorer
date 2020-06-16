@@ -1,5 +1,5 @@
 <div class="coment-section">
-    <div *ngFor='let item of coments;'>
+    <div *ngFor='let item of pagination_data;'>
         <div class="title">
             {{item.author.username}}
             <i class="data">{{item.creared | date}}</i>

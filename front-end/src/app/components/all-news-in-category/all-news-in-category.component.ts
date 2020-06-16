@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { PaginatorComponent } from '../paginator/paginator.component' 
+import { News_Model } from  '../../models/news'
 @Component({
   selector: 'app-all-news-in-category',
   templateUrl: './all-news-in-category.component.html',
@@ -8,6 +9,7 @@ import { PaginatorComponent } from '../paginator/paginator.component'
 export class AllNewsInCategoryComponent extends PaginatorComponent {
   
   category:string
+  pagination_data:Array<News_Model>;
   protected init() : void{
     this.category = this.route.snapshot.paramMap.get('category');
     this.get_pages='Get_news_from_category_pages/'+this.category

@@ -1,7 +1,9 @@
 <div class="coment-section">
     <div *ngFor='let item of coments;'>
-        <div class="title">{{item.author.username}}</div>
+        <div class="title">
+            {{item.author.username}}
+            <i class="data">{{item.creared | date}}</i>
+        </div>
         <div class="content">{{item.content}}</div>
-        <div class="date">{{item.created | date}}</div>
     </div>
 </div>

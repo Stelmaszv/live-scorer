@@ -37,7 +37,7 @@ class Get_top_news_in_Competition(API_prototype):
         self.queryset = News.objects.filter(Competition__id=self.kwargs.get('competition_id')).order_by('-views')
 class Get_Coments(API_prototype):
     serializer_class=ComentsSerializer
-    on_page=1
+    on_page=5
     def set_query_set(self,request):
         self.queryset=News.objects.get(id=self.kwargs.get('news_id')).coments.all()
 class Get_Coments_pages(Get_Coments):

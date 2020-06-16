@@ -13,7 +13,7 @@ export class GetNewsComponent implements OnInit {
   news_jason:string
   constructor(private route: ActivatedRoute,private ns:NewsService) { }
 
-  ngOnInit() : void 
+  public ngOnInit() : void 
   {
     this.id = this.route.snapshot.paramMap.get('id');
     this.get_news();

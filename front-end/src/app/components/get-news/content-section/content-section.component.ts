@@ -12,7 +12,6 @@ export class ContentSectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.data_parse = JSON.parse(this.data);
-    console.log(this.data_parse.coments)
   }
 
 }

@@ -1,1 +1,7 @@
-<p>coments works!</p>
+<div class="coment-section">
+    <div *ngFor='let item of coments;'>
+        <div class="title">{{item.author.username}}</div>
+        <div class="content">{{item.content}}</div>
+        <div class="date">{{item.created | date}}</div>
+    </div>
+</div>

@@ -12,7 +12,7 @@ export class AllNewsInCategoryComponent extends PaginatorComponent {
   protected init() : void{
     this.category = this.route.snapshot.paramMap.get('category');
     this.get_pages='Get_news_from_category_pages/'+this.category
-    this.pagination_data_get_method=this.ns.Get_All_News_From_Category(this.category,1)
+    this.pagination_data_get_method=this.ns.Get_All_News_From_Category(this.category,this.page)
   }
   protected get_more() : void 
   {

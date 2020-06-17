@@ -85,14 +85,19 @@ export abstract class PaginatorComponent implements OnInit {
 
   private check() : void 
   {
-    if (this.get_pages == undefined){
-      console.log('this.get_pages is undefined')
-    }
-    if (this.pagination_data_get_method == undefined){
-      console.log('this.pagination_data_get_method is undefined')
-    }
-    if(typeof this.pagination_data_get_method != 'object'){
-      console.log('valule must method in class')
+    try {
+      if (this.pagination_data_get_method == undefined){
+        throw new Error('this.pagination_data_get_method is undefined');
+      }
+      if (this.get_pages == undefined){
+        throw new Error('this.get_pages is undefined');
+      }
+      if(typeof this.pagination_data_get_method != 'object'){
+          throw new Error('valule must method in class');
+      }
+    } catch (e){
+      console.log(e)
+      alert(e)
     }
   }
 }

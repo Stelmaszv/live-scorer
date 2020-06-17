@@ -15,4 +15,10 @@ export class ShowAllNewsInCompettionsComponent extends PaginatorComponent{
     this.get_pages='Get_news_from_category_pages/'+this.compettion
     this.pagination_data_get_method=this.ns.Get_All_news_By_competition(this.compettion,this.page)
   }
+  protected get_more() : void 
+  {
+    this.page=this.page+1
+    this.pagination_data_get_method=this.ns.Get_All_news_By_competition(this.compettion,this.page)
+    this.get_data(this.page)
+  }
 }

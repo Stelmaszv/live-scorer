@@ -1,8 +1,8 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LiveScorerHtppService } from '../../../service/live-scorer-htpp.service'
-import { Competition_get_Model } from '../../../models/competitions_get'
-import { Competition_Model } from '../../../models/competitions'
+import { LiveScorerHtppService } from '../../../../service/live-scorer-htpp.service'
+import { Competition_get_Model } from '../../../../models/competitions_get'
+import { Competition_Model } from '../../../../models/competitions'
 
 @Component({
   selector: 'app-show-all-news-in-compettions-navbar',

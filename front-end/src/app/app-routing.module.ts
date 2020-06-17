@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { StartComponent } from './components/start/start.component';
-import { AllNewsInCategoryComponent } from './components/all-news-in-category/all-news-in-category.component';
-import { ShowAllNewsInCompettionsComponent } from './components/show-all-news-in-compettions/show-all-news-in-compettions.component';
-import { GetNewsComponent } from './components/get-news/get-news.component'
+import { StartComponent } from './components/commom/start/start.component';
+import { AllNewsInCategoryComponent } from './components/sections/all-news-in-category/all-news-in-category.component';
+import { ShowAllNewsInCompettionsComponent } from './components/sections/show-all-news-in-compettions/show-all-news-in-compettions.component';
+import { GetNewsComponent } from './components/sections/get-news/get-news.component'
 
 const routes: Routes = [
   { path:'' , component:StartComponent},

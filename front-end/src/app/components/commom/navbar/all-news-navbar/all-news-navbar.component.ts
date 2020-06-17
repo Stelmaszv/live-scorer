@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
-import { LiveScorerHtppService } from '../../service/live-scorer-htpp.service'
-import { Competition_Model } from '../../models/competitions'
+import { LiveScorerHtppService } from '../../../../service/live-scorer-htpp.service'
+import { Competition_Model } from '../../../../models/competitions'
 @Component({
   selector: 'app-all-news-navbar',
   templateUrl: './all-news-navbar.component.html',

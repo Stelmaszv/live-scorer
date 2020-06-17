@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
-import { PaginatorComponent } from '../paginator/paginator.component' 
-import { News_Model } from  '../../models/news'
+import { PaginatorComponent } from '../../commom/paginator/paginator.component' 
+import { News_Model } from  '../../../models/news'
 @Component({
   selector: 'app-all-news-in-category',
   templateUrl: './all-news-in-category.component.html',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../../service/news.service';
-import { Get_News_Model } from '../../models/get_news'
+import { NewsService } from '../../../service/news.service';
+import { Get_News_Model } from '../../../models/get_news'
 import { ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-get-news',

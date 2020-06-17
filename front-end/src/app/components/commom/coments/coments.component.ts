@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import {Coments_Model} from '../../../models/coments'
-import { PaginatorComponent } from '../../../components/paginator/paginator.component' 
+import { PaginatorComponent } from '../paginator/paginator.component' 
 @Component({
   selector: 'app-coments',
   templateUrl: './coments.component.html',

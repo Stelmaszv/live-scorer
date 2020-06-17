@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
-import {NewsService} from '../../service/news.service'
-import { Pages_Service } from '../../service/pages.service'
-import { Pages_Model } from  '../../models/pages'
+import {NewsService} from '../../../service/news.service'
+import { Pages_Service } from '../../../service/pages.service'
+import { Pages_Model } from  '../../../models/pages'
 import { HostListener } from '@angular/core';
-import { News_Model } from  '../../models/news'
+import { News_Model } from  '../../../models/news'
 @Component({
   selector: 'app-paginator',
   templateUrl: './paginator.component.html',

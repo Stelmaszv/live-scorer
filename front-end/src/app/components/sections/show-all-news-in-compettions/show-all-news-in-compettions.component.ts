@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { PaginatorComponent } from '../paginator/paginator.component' 
-import { News_Model } from  '../../models/news'
+import { PaginatorComponent } from '../../../components/commom/paginator/paginator.component' 
+import { News_Model } from  '../../../models/news'
 
 @Component({
   selector: 'app-show-all-news-in-compettions',

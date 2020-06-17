@@ -4,6 +4,6 @@
             {{item.author.username}}
             <i class="data">{{item.creared | date}}</i>
         </div>
-        <div class="content">{{item.content  }}</div>
+        <div class="content">{{ item.content |lenghtLimitPipe:48  }}</div>
     </div>
 </div>

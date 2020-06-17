@@ -16,7 +16,7 @@ export class ComentsComponent extends PaginatorComponent {
   protected get_more() : void 
   {
     this.page=this.page+1
-    this.pagination_data_get_method=this.ns.Get_All_News_From_Category(this.category,this.page)
+    this.pagination_data_get_method=this.ns.Get_Coments_service(this.id,this.page)
     this.get_data(this.page)
   }
 }

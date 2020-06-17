@@ -19,8 +19,16 @@ export abstract class PaginatorComponent implements OnInit {
   list:Array<any>;
   pagination_data;
   page:number;
+
+  category='soccer';
+
+  @HostListener("window:scroll", []) onWindowScroll() {
+    this.scrool_evant()
+  }
+
   constructor(protected ns:NewsService, protected route: ActivatedRoute,protected Pages_Service:Pages_Service) { }
-  ngOnInit(): void {
+  
+  public ngOnInit(): void {
     this.page=1;
     this.init()
     this.list=[]
@@ -29,9 +37,6 @@ export abstract class PaginatorComponent implements OnInit {
   }
   protected abstract init() : void;
 
-  @HostListener("window:scroll", []) onWindowScroll() {
-    this.scrool_evant()
-  }
   protected get_data(page) : void 
   {
     this.loding_click=true
@@ -39,17 +44,18 @@ export abstract class PaginatorComponent implements OnInit {
        this.pages=pages
        if (pages.valid){
           this.loding=true
-          this.pagination_data_get_method.subscribe(news => {
-          for (let item of news ){
-            this.list.push(item)
-          }
-          this.pagination_data=this.list
-          this.loding=false;
-          this.loding_click=false;
-        });
+          this.pagination_data_get_method.subscribe(news => {  
+            for (let item of news ){
+              this.list.push(item)
+            }
+            this.pagination_data=this.list
+            this.loding=false;
+            this.loding_click=false;
+          });
       }
     });
   }
+
   protected scrool_evant() : void 
   {
     const verticalOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
@@ -60,10 +66,8 @@ export abstract class PaginatorComponent implements OnInit {
       document.documentElement.scrollHeight, 
       document.documentElement.offsetHeight 
     );
-
-    const max_procent=5*max/100 
+    const max_procent=2*max/100 
     if(verticalOffset>max_procent){
-      console.log(this.pages.valid)
       if (this.pages.valid){
           if(!this.loding){
             this.get_more()
@@ -73,7 +77,7 @@ export abstract class PaginatorComponent implements OnInit {
     }
   }
 
-  private get_more() : void 
+  protected get_more() : void 
   {
     this.page=this.page+1
     this.get_data(this.page)

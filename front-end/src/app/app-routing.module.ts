@@ -4,12 +4,14 @@ import { StartComponent } from './components/commom/start/start.component';
 import { AllNewsInCategoryComponent } from './components/sections/all-news-in-category/all-news-in-category.component';
 import { ShowAllNewsInCompettionsComponent } from './components/sections/show-all-news-in-compettions/show-all-news-in-compettions.component';
 import { GetNewsComponent } from './components/sections/get-news/get-news.component'
+import { AddNewsComponent } from './components/sections/add-news/add-news.component'
 
 const routes: Routes = [
   { path:'' , component:StartComponent},
   { path:'show_all_news/:category' , component:AllNewsInCategoryComponent},
   { path:'show_all_news_in_compettions/:compettion' , component:ShowAllNewsInCompettionsComponent},
-  { path:'get_news/:id' , component:GetNewsComponent}
+  { path:'get_news/:id' , component:GetNewsComponent},
+  { path:'add_news', component:AddNewsComponent }
 ];
 
 @NgModule({
@@ -17,4 +19,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents=[StartComponent,AllNewsInCategoryComponent,ShowAllNewsInCompettionsComponent,GetNewsComponent]
+export const routingComponents=[StartComponent,AllNewsInCategoryComponent,ShowAllNewsInCompettionsComponent,GetNewsComponent,AddNewsComponent]

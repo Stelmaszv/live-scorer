@@ -4,7 +4,6 @@ import {NewsService} from '../../../service/news.service'
 import { Pages_Service } from '../../../service/pages.service'
 import { Pages_Model } from  '../../../models/pages'
 import { HostListener } from '@angular/core';
-import { News_Model } from  '../../../models/news'
 @Component({
   selector: 'app-paginator',
   templateUrl: './paginator.component.html',
@@ -23,7 +22,7 @@ export abstract class PaginatorComponent implements OnInit {
   category='soccer';
 
   @HostListener("window:scroll", []) onWindowScroll() {
-    this.scrool_evant()
+   this.scrool_evant()
   }
 
   constructor(protected ns:NewsService, protected route: ActivatedRoute,protected Pages_Service:Pages_Service) { }

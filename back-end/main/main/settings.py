@@ -138,4 +138,10 @@ MEDIA_URL = '/media/'
 
 CORS_ORIGIN_WHITELIST = 'http://localhost:4200',
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 

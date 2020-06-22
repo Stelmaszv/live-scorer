@@ -2,6 +2,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import  APIView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import BasePermission, IsAuthenticated, SAFE_METHODS,IsAuthenticatedOrReadOnly
 class CastumPaginator:
     def __init__(self,query,on_page,request):
         self._queryset=query;
@@ -30,6 +32,8 @@ class API_prototype(APIView):
     on_page=None
     return_pages=False
     many=True
+    if_auth=False
+    permission_classes = [IsAuthenticatedOrReadOnly]
     def paginate(self, request, *args, **kwargs):
         if self.on_page is not None:
             paginator=CastumPaginator(self.queryset,self.on_page,request)
@@ -48,9 +52,11 @@ class API_prototype(APIView):
             return self.return_respanse(request)
         return self.return_respanse(request)
     def _API_get(self, request, *args, **kwargs):
+        self.auth=False
         serializer = self.serializer_class(self.queryset, many=self.many)
         return Response(data=serializer.data, status=status.HTTP_200_OK)
     def get(self, request, *args, **kwargs):
+        self.permission_classes = []
         self.set_query_set(request)
         self.paginate(request)
         return self.return_respanse(request)

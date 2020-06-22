@@ -3,8 +3,9 @@ from core.prototype_classes import API_prototype
 from .serializers import NewsSerializer,GetNewsSerializer,ComentsSerializer
 class Get_Top_News(API_prototype):
     serializer_class = NewsSerializer
+    model = News;
     def set_query_set(self,request):
-        self.queryset = News.objects.all()[:3]
+        self.queryset = News.objects.all().order_by('-views')[:3]
 class Get_News(API_prototype):
     serializer_class = GetNewsSerializer
     many=False

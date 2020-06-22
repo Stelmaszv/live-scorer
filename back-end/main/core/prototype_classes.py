@@ -39,6 +39,14 @@ class API_prototype(APIView):
             self.num_pages=paginator.return_num_pages()
     def set_query_set(self,request):
         pass
+    def post(self, request, *args, **kwargs):
+        self.set_query_set(request)
+        serializer = self.serializer_class(data=request.data,many=False)
+        if serializer.is_valid():
+            serializer.save()
+            self.paginate(request)
+            return self.return_respanse(request)
+        return self.return_respanse(request)
     def _API_get(self, request, *args, **kwargs):
         serializer = self.serializer_class(self.queryset, many=self.many)
         return Response(data=serializer.data, status=status.HTTP_200_OK)

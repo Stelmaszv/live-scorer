@@ -5,13 +5,14 @@ import { AllNewsInCategoryComponent } from './components/sections/all-news-in-ca
 import { ShowAllNewsInCompettionsComponent } from './components/sections/show-all-news-in-compettions/show-all-news-in-compettions.component';
 import { GetNewsComponent } from './components/sections/get-news/get-news.component'
 import { AddNewsComponent } from './components/sections/add-news/add-news.component'
+import { AuthComponent } from './components/sections/auth/auth.component';
 
 const routes: Routes = [
   { path:'' , component:StartComponent},
   { path:'show_all_news/:category' , component:AllNewsInCategoryComponent},
   { path:'show_all_news_in_compettions/:compettion' , component:ShowAllNewsInCompettionsComponent},
   { path:'get_news/:id' , component:GetNewsComponent},
-  { path:'add_news', component:AddNewsComponent }
+  { path:'login', component:AuthComponent }
 ];
 
 @NgModule({

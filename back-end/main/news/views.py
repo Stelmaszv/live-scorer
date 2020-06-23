@@ -1,6 +1,7 @@
 from .models import News
 from core.prototype_classes import API_prototype
 from .serializers import NewsSerializer,GetNewsSerializer,ComentsSerializer
+
 class Get_Top_News(API_prototype):
     serializer_class = NewsSerializer
     if_auth=True;
@@ -43,3 +44,5 @@ class Get_Coments(API_prototype):
         self.queryset=News.objects.get(id=self.kwargs.get('news_id')).coments.all()
 class Get_Coments_pages(Get_Coments):
     return_pages=True
+
+

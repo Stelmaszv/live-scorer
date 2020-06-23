@@ -22,6 +22,13 @@ export class NewsService {
   public Get_News_From_Category(category) :Observable<News_Model[]> {
     return this.http.get<News_Model[]>(this.From_category_url+''+category)
   }
+  public Add_new_news(data) :Observable<News_Model[]>
+  {
+    const options = {
+      headers: { 'Content-Type': ['application/json'] },
+    };
+    return this.http.post<News_Model[]>(this.Top_News_url,data,options) 
+  }
   public Get_All_News_From_Category(category,page) :Observable<News_Model[]> {
     return this.http.get<News_Model[]>(this.All_From_ctegory_url+''+category+'?page='+page)
   }

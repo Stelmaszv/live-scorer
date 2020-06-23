@@ -12,7 +12,8 @@ const routes: Routes = [
   { path:'show_all_news/:category' , component:AllNewsInCategoryComponent},
   { path:'show_all_news_in_compettions/:compettion' , component:ShowAllNewsInCompettionsComponent},
   { path:'get_news/:id' , component:GetNewsComponent},
-  { path:'login', component:AuthComponent }
+  { path:'login', component:AuthComponent },
+  { path:'add_news', component:AddNewsComponent }
 ];
 
 @NgModule({

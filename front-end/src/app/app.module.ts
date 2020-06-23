@@ -5,6 +5,7 @@ import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LenghtLimitPipePipe } from './pipe/lenght-limit-pipe.pipe';
 import {Commom_Components} from './component inports/commom';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,8 @@ import {Commom_Components} from './component inports/commom';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

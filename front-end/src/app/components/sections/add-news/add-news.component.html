@@ -1,1 +1,27 @@
-<p>add-news works!</p>
+<form [formGroup]="create" (ngSubmit)="onSubmit()">
+   <label>
+      title:
+      <input type="text" formControlName="title">
+    </label>
+    <label>
+      views:
+      <input type="number" formControlName="views">
+    </label>
+    <label>
+      Competition:
+      <input type="number" formControlName="Competition">
+    </label>
+    <label>
+      category:
+      <input type="number" formControlName="category">
+    </label>
+    <label>
+      category:
+      <textarea type="text" formControlName="description"></textarea>
+    </label>
+    <label>
+      author:
+      <input type="number" formControlName="author">
+    </label>
+    <button type="submit" [disabled]="!create.valid">Submit</button>
+</form>

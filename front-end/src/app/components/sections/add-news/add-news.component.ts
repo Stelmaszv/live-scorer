@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../../../service/news.service'
 import { Auth_Service } from '../../../service/auth.service';
+import {FormControl, FormGroup} from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-news',
   templateUrl: './add-news.component.html',
@@ -8,28 +10,27 @@ import { Auth_Service } from '../../../service/auth.service';
 })
 export class AddNewsComponent implements OnInit {
 
-  constructor(private ns:NewsService,private Auth_Service:Auth_Service) { }
-
+  constructor(private ns:NewsService,private Auth_Service:Auth_Service,private router: Router) { }
+  create = new FormGroup({
+    title: new FormControl('test auth'),
+    views: new FormControl(314713491346),
+    Competition: new FormControl(3),
+    category: new FormControl(3),
+    description: new FormControl("ylylyilyi525252525l"),
+    author: new FormControl(1),
+  });
   ngOnInit(): void {
     this.Auth_Service.username='stelmaszv'
     this.Auth_Service.password='123'
-    this.test_post()
   }
-  public test_post(){
-      let data = {
-        "title": "test auth",
-        "views": 314713491346,
-        "Competition": 3,
-        "category": 3,
-        "description": "ylylyilyi525252525l",
-        "author": 1,
-        "created": "2020-06-22T13:00:50.966290Z",
-        "username": this.Auth_Service.username,
-        "password": this.Auth_Service.password,
-    }
-    this.ns.Add_new_news(data).subscribe(() => {
-        console.log('ok')
+  private add_post(){
+    this.create=this.Auth_Service.add_auth_form(this.create)
+    this.ns.Add_new_news(this.create.value).subscribe(() => {
+      this.router.navigate(['/']);
     });
+  }
+  public onSubmit(){
+    this.add_post()
   }
 
 }

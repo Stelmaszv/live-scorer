@@ -8,12 +8,26 @@ import { AddNewsComponent } from './components/sections/add-news/add-news.compon
 import { AuthComponent } from './components/sections/auth/auth.component';
 import { AuthGuard } from '../app/gards/auth.guard'
 const routes: Routes = [
-  { path:'' , component:StartComponent},
-  { path:'show_all_news/:category' , component:AllNewsInCategoryComponent},
-  { path:'show_all_news_in_compettions/:compettion' , component:ShowAllNewsInCompettionsComponent},
-  { path:'get_news/:id' , component:GetNewsComponent},
-  { path:'login', component:AuthComponent },
-  { path:'add_news', 
+  { 
+    path:'' , 
+    component:StartComponent
+  },
+  { 
+    path:'show_all_news/:category' , 
+    component:AllNewsInCategoryComponent
+  },
+  { 
+    path:'show_all_news_in_compettions/:compettion' , 
+    component:ShowAllNewsInCompettionsComponent},
+  { 
+    path:'get_news/:id' , 
+    component:GetNewsComponent},
+  { 
+    path:'login', 
+    component:AuthComponent 
+  },
+  { 
+    path:'add_news', 
     component:AddNewsComponent,
     canActivate:[AuthGuard]
   }
@@ -24,4 +38,10 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents=[StartComponent,AllNewsInCategoryComponent,ShowAllNewsInCompettionsComponent,GetNewsComponent,AddNewsComponent]
+export const routingComponents=[
+  StartComponent,
+  AllNewsInCategoryComponent,
+  ShowAllNewsInCompettionsComponent,
+  GetNewsComponent,
+  AddNewsComponent
+]

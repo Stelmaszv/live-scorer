@@ -6,14 +6,17 @@ import { ShowAllNewsInCompettionsComponent } from './components/sections/show-al
 import { GetNewsComponent } from './components/sections/get-news/get-news.component'
 import { AddNewsComponent } from './components/sections/add-news/add-news.component'
 import { AuthComponent } from './components/sections/auth/auth.component';
-
+import { AuthGuard } from '../app/gards/auth.guard'
 const routes: Routes = [
   { path:'' , component:StartComponent},
   { path:'show_all_news/:category' , component:AllNewsInCategoryComponent},
   { path:'show_all_news_in_compettions/:compettion' , component:ShowAllNewsInCompettionsComponent},
   { path:'get_news/:id' , component:GetNewsComponent},
   { path:'login', component:AuthComponent },
-  { path:'add_news', component:AddNewsComponent }
+  { path:'add_news', 
+    component:AddNewsComponent,
+    canActivate:[AuthGuard]
+  }
 ];
 
 @NgModule({

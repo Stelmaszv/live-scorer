@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Auth_Model} from '../models/auth' 
 import { HttpClient} from '@angular/common/http';
 import {FormControl,FormGroup} from '@angular/forms';
 import {Login_Model} from '../models/login'
+import {User_model} from '../models/user'
 import {Observable} from 'rxjs';
 const options = {
   headers: { 'Content-Type': ['application/json'] }
@@ -13,9 +13,9 @@ const options = {
 export class Auth_Service {
   login_url='http://127.0.0.1:8000/login/'
   constructor(private http:HttpClient) { }
-  public login(data:Login_Model) :Observable<Auth_Model>
+  public login(data:Login_Model) :Observable<User_model>
   {
-    return this.http.post<Auth_Model>(this.login_url,data,options) 
+    return this.http.post<User_model>(this.login_url,data,options) 
   }
   public add_auth_form (from) :FormGroup
   {
@@ -27,7 +27,7 @@ export class Auth_Service {
   public set_data(user){
     localStorage.setItem('user', JSON.stringify(user));
   }
-  private get_auth()
+  private get_auth() :User_model
   {
     return JSON.parse(localStorage.getItem('user'))
   }

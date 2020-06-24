@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './add-news.component.html',
   styleUrls: ['./add-news.component.scss']
 })
-export class AddNewsComponent implements OnInit {
+export class AddNewsComponent{
 
   constructor(private ns:NewsService,private Auth_Service:Auth_Service,private router: Router) { }
   create = new FormGroup({
@@ -19,10 +19,6 @@ export class AddNewsComponent implements OnInit {
     description: new FormControl("ylylyilyi525252525l"),
     author: new FormControl(1),
   });
-  ngOnInit(): void {
-    this.Auth_Service.username='stelmaszv'
-    this.Auth_Service.password='123'
-  }
   private add_post(){
     this.create=this.Auth_Service.add_auth_form(this.create)
     this.ns.Add_new_news(this.create.value).subscribe(() => {

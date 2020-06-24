@@ -11,18 +11,24 @@ const options = {
   providedIn: 'root'
 })
 export class Auth_Service {
-  username:string;
-  password:string;
   login_url='http://127.0.0.1:8000/login/'
   constructor(private http:HttpClient) { }
-  public login(data:Login_Model)
+  public login(data:Login_Model) :Observable<Auth_Model>
   {
-    return this.http.post(this.login_url,data,options) 
+    return this.http.post<Auth_Model>(this.login_url,data,options) 
   }
   public add_auth_form (from)
   {
-    from.addControl('username',new FormControl(this.username))
-    from.addControl('password',new FormControl(this.password))
+    const user=this.get_auth()
+    from.addControl('username',new FormControl(user.username))
+    from.addControl('password',new FormControl(atob(user.password)))
     return from
+  }
+  public set_data(user){
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+  private get_auth()
+  {
+    return JSON.parse(localStorage.getItem('user'))
   }
 }

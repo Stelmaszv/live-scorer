@@ -6,6 +6,7 @@ import { Auth_Service } from '../../../service/auth.service'
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent{
+  invalid_data:boolean;
   constructor(private Auth_Service:Auth_Service) { }
   private login (username:string,password:string){
     let data ={
@@ -13,11 +14,14 @@ export class AuthComponent{
       'password' : password
     }
     this.Auth_Service.login(data).subscribe(
-        (data_OUT) => {
-            console.log(data_OUT)
+        (user) => {
+           user.password=btoa(password)
+           if(user){
+             this.Auth_Service.set_data(user)
+           }
         },
-        (error)=>{
-          console.log(error)
+        ()=>{
+          this.invalid_data=true;
         }
     );
   }

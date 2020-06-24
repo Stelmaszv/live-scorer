@@ -1,7 +1,18 @@
 from .models import News
 from core.prototype_classes import API_prototype
-from .serializers import NewsSerializer,GetNewsSerializer,ComentsSerializer
-
+from core.auth import Authentication
+from .serializers import NewsSerializer,GetNewsSerializer,ComentsSerializer,UserSerializer
+from rest_framework.response import Response
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth.models import User
+class login(API_prototype):
+    authentication_classes = (SessionAuthentication, Authentication,)
+    permission_classes = [IsAuthenticated]
+    serializer_class=UserSerializer
+    many = False
+    def set_query_set(self,request):
+        self.queryset = User.objects.get(id=request.user.id)
 class Get_Top_News(API_prototype):
     serializer_class = NewsSerializer
     if_auth=True;

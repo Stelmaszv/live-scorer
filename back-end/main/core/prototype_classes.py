@@ -2,28 +2,9 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import  APIView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-from rest_framework.permissions import IsAuthenticatedOrReadOnly,IsAuthenticated
-from rest_framework import exceptions
-from django.contrib.auth import authenticate, get_user_model
-class Authentication(BasicAuthentication):
-
-    def authenticate(self, request):
-
-        # Get the username and password
-        username = request.data.get('username', None)
-        password = request.data.get('password', None)
-
-
-
-        credentials = {
-            get_user_model().USERNAME_FIELD: username,
-            'password': password
-        }
-
-        user = authenticate(**credentials)
-
-        return (user, None)
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from .auth import Authentication
 class CastumPaginator:
     def __init__(self,query,on_page,request):
         self._queryset=query;

@@ -14,6 +14,7 @@ urlpatterns = [
     path('Get_top_news_in_Competitions/<int:competition_id>/',views.Get_top_news_in_Competition.as_view(),name="top news in ccompetition"),
     path('Get_Coments/<int:news_id>/',views.Get_Coments.as_view(),name="Get Coments"),
     path('Get_Coments_pages/<int:news_id>/',views.Get_Coments_pages.as_view(),name="Get Coments pages"),
+    path('login/',views.login.as_view(),name="login"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

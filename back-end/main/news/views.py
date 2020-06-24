@@ -2,7 +2,6 @@ from .models import News
 from core.prototype_classes import API_prototype
 from core.auth import Authentication
 from .serializers import NewsSerializer,GetNewsSerializer,ComentsSerializer,UserSerializer
-from rest_framework.response import Response
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User

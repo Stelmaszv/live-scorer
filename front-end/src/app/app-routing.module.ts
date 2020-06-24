@@ -30,7 +30,7 @@ const routes: Routes = [
   { 
     path:'add_news', 
     component:AddNewsComponent,
-    canActivate:[AuthGuard]
+    canActivate:[]
   }
 ];
 
@@ -44,5 +44,6 @@ export const routingComponents=[
   AllNewsInCategoryComponent,
   ShowAllNewsInCompettionsComponent,
   GetNewsComponent,
-  AddNewsComponent
+  AddNewsComponent,
+  AuthComponent
 ]

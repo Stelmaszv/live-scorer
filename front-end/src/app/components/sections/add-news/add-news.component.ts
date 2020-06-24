@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { NewsService } from '../../../service/news.service'
 import { Auth_Service } from '../../../service/auth.service';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -12,12 +12,12 @@ export class AddNewsComponent{
 
   constructor(private ns:NewsService,private Auth_Service:Auth_Service,private router: Router) { }
   create = new FormGroup({
-    title: new FormControl('test auth'),
-    views: new FormControl(314713491346),
-    Competition: new FormControl(3),
-    category: new FormControl(3),
-    description: new FormControl("ylylyilyi525252525l"),
-    author: new FormControl(1),
+    title: new FormControl(),
+    views: new FormControl(),
+    Competition: new FormControl(),
+    category: new FormControl(),
+    description: new FormControl(),
+    author: new FormControl(),
   });
   private add_post(){
     this.create=this.Auth_Service.add_auth_form(this.create)

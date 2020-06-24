@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Auth_Model} from '../models/auth' 
 import { HttpClient} from '@angular/common/http';
-import {FormControl} from '@angular/forms';
+import {FormControl,FormGroup} from '@angular/forms';
 import {Login_Model} from '../models/login'
 import {Observable} from 'rxjs';
 const options = {
@@ -17,7 +17,7 @@ export class Auth_Service {
   {
     return this.http.post<Auth_Model>(this.login_url,data,options) 
   }
-  public add_auth_form (from)
+  public add_auth_form (from) :FormGroup
   {
     const user=this.get_auth()
     from.addControl('username',new FormControl(user.username))
@@ -30,5 +30,12 @@ export class Auth_Service {
   private get_auth()
   {
     return JSON.parse(localStorage.getItem('user'))
+  }
+  public if_auth() :boolean
+  {
+    if(this.get_auth()){
+      return true;
+    }
+    return false;
   }
 }

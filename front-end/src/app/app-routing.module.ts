@@ -21,7 +21,8 @@ const routes: Routes = [
     component:ShowAllNewsInCompettionsComponent},
   { 
     path:'get_news/:id' , 
-    component:GetNewsComponent},
+    component:GetNewsComponent
+  },
   { 
     path:'login', 
     component:AuthComponent 
@@ -29,7 +30,9 @@ const routes: Routes = [
   { 
     path:'add_news', 
     component:AddNewsComponent,
+    redirectTo: "",
     canActivate:[AuthGuard]
+
   }
 ];
 

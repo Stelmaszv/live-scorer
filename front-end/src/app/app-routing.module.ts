@@ -30,9 +30,7 @@ const routes: Routes = [
   { 
     path:'add_news', 
     component:AddNewsComponent,
-    redirectTo: "",
     canActivate:[AuthGuard]
-
   }
 ];
 

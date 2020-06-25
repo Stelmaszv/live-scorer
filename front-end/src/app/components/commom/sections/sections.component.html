@@ -18,7 +18,8 @@
         </div>
         <div class="col-7 news_list_section">
             <div class="news_list" *ngFor="let el of news;">
-                <li *ngIf="el.id != mian.id"><a href="get_news/{{el.id}}">{{el.title}}</a></li>
+                <li *ngIf="el.id != mian.id"><a href="get_news/{{el.id}}">
+                </a></li>
             </div>
         </div>
     </div>    

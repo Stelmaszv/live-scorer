@@ -1,5 +1,5 @@
 from .models import News
-from core.prototype_classes import API_prototype
+from core.prototype_classes import API_prototype,API_prototype_get
 from core.auth import Authentication
 from .serializers import NewsSerializer,GetNewsSerializer,ComentsSerializer,UserSerializer
 from rest_framework.authentication import SessionAuthentication
@@ -17,7 +17,7 @@ class Get_Top_News(API_prototype):
     if_auth=True;
     def set_query_set(self,request):
         self.queryset = News.objects.all().order_by('-views')[:3]
-class Get_News(API_prototype):
+class Get_News(API_prototype_get):
     serializer_class = GetNewsSerializer
     many=False
     def set_query_set(self,request):
@@ -44,9 +44,9 @@ class Get_top_news_in_Category(API_prototype):
     def set_query_set(self,request):
         self.queryset = News.objects.filter(category__id=self.kwargs.get('category_id')).order_by('-views')
 class Get_top_news_in_Competition(API_prototype):
-    serializer_class=GetNewsSerializer
+    serializer_class=NewsSerializer
     def set_query_set(self,request):
-        self.queryset = News.objects.filter(Competition__id=self.kwargs.get('competition_id')).order_by('-views')
+        self.queryset = News.objects.filter(Competition__name=self.kwargs.get('competition_name')).order_by('-views')
 class Get_Coments(API_prototype):
     serializer_class=ComentsSerializer
     on_page=5

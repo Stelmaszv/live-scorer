@@ -35,7 +35,7 @@ export class NewsService {
     return this.http.get<News_Model[]>(this.All_From_ctegory_url+''+category+'?page='+page)
   }
   public Get_All_news_By_competition(competition,page) :Observable<News_Model[]> {
-    return this.http.get<News_Model[]>(this.Get_news_from_competitions_url+''+competition+'?page='+page)
+    return this.http.get<News_Model[]>(this.Get_news_from_competitions_url+''+competition+'/?page='+page)
   }
   public Get_news_service(id) :Observable<Get_News_Model>{
     return this.http.get<Get_News_Model>(this.Get_News_url+''+id)

@@ -13,7 +13,6 @@ export class SectionsComponent implements OnInit {
   constructor(private ns:NewsService) { }
 
   ngOnInit(): void {
-    this.category='soccer'
     this.From_Category(this.category)
   }
   private From_Category (category) :any  {

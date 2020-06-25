@@ -1,16 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PagesService } from './pages.service';
+import { Pages_Service } from './pages.service';
 
 describe('PagesService', () => {
-  let service: PagesService;
+  let service: Pages_Service;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PagesService);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+    service = TestBed.inject(Pages_Service);
   });
 });

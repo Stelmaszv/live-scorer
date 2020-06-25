@@ -9,8 +9,4 @@ describe('LiveScorerHtppService', () => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(LiveScorerHtppService);
   });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
 });

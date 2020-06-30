@@ -3,7 +3,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
-    path('Get_top_news/',views.Get_Top_News.as_view()),
+    path('Get_top_news/',views.Get_Top_News.as_view(),name="Get_top_news"),
     path('Get_News/<int:id>/',views.Get_News.as_view(),name='top_news'),
     path('Get_news_from_category/<str:category>/',views.Get_news_from_category.as_view(),name='category_limit'),
     path('Get_news_from_category_all/<str:category>/',views.Get_news_from_category_all.as_view(),name='category_all'),

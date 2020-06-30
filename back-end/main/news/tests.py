@@ -6,9 +6,19 @@ from .models import News
 import json
 class login_Test(APITestCase):
     list_url = reverse("login")
+
     def test_url_no_login(self):
         response = self.client.get(self.list_url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+    def test_url_login(self):
+        data={
+            'username':'stelmaszv',
+            'password':'123'
+        }
+        response=self.client.post(self.list_url, data)
+
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
 class Get_Top_News_Test(APITestCase):
     list_url = reverse("Get_top_news")
     def test_url(self):

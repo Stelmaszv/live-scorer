@@ -33,7 +33,6 @@ class GetNewsSerializer(abstract_base_serializer):
             'id': instance.id,
             'title':instance.title,
             'description':instance.description,
-            'photo': instance.photo.url,
             'views': instance.views,
             'created': instance.created,
             'Competition':self._get_serializer(Competitions_Serializer_get,instance.Competition),

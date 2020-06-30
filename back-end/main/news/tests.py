@@ -14,8 +14,11 @@ class Get_Top_News_Test(APITestCase):
     def test_url(self):
         response = self.client.get(self.list_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-    def test_status_chceck(self):
-        serializer_data = NewsSerializer(instance=News.objects.all()).data
+    def test_json_match(self):
+        serializer_data = NewsSerializer(instance=News.objects.all(),many=True).data
         response = self.client.get(self.list_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        response_data = json.loads(response.content)
+        self.assertEqual(serializer_data, response_data)
+
 

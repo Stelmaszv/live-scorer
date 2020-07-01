@@ -62,23 +62,27 @@ class Get_Top_News_Test(abstrat_Test):
 class Get_News_test(abstrat_Test):
     url_test=reverse('news:Get', kwargs={"id": 1})
 
+    def setUp(self):
+        News.objects.create(title="soccerfqef")
+
     def test_get_url(self):
         self.assertEquals(resolve(self.url_test).func.view_class, Get_News)
 
     def test_json_match(self):
-        News.objects.create(title="soccerfqef")
-        response = self.client.get(self.url_test)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.data_match()
+
 class Get_News_from_category_test(abstrat_Test):
     url_test=reverse('news:category_limit', kwargs={"category": "soccer"})
     instance=News
     Serializer=NewsSerializer;
+
 
     def test_get_url(self):
         self.assertEquals(resolve(self.url_test).func.view_class, Get_news_from_category)
 
     def test_json_match(self):
         self.json_match()
+
 class Get_news_from_category_all_test(abstrat_Test):
     url_test = reverse('news:category_all', kwargs={"category": "soccer"})
 
@@ -90,6 +94,7 @@ class Get_news_from_category_all_test(abstrat_Test):
 
     def test_json_match(self):
         self.data_match()
+
 class Get_news_from_competitions_test(abstrat_Test):
     url_test = reverse('news:Get news competitions', kwargs={"competition": "BBL"})
 

@@ -4,7 +4,6 @@ from .serializers import Competitions_Serializer_get,Competitions_Serializer
 from core.prototype_classes import API_prototype,API_prototype_get
 class Get_competitions(API_prototype):
 
-    queryset=Competitions.objects.all()
     serializer_class = Competitions_Serializer
 
     def set_query_set(self,request):

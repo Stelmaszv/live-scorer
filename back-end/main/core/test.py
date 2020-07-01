@@ -1,5 +1,6 @@
 from rest_framework.test import APITestCase
 from rest_framework import status
+from django.urls import resolve
 import json
 class abstrat_Test(APITestCase):
     many=True
@@ -14,3 +15,6 @@ class abstrat_Test(APITestCase):
     def data_match(self):
         response = self.client.get(self.url_test)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def view_match(self,view):
+        self.assertEquals(resolve(self.url_test).func.view_class, view)

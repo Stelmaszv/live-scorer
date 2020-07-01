@@ -18,15 +18,15 @@ from .views import Get_News,\
     Get_Coments_pages
 from django.contrib.auth.models import User
 from core.test import abstrat_Test
-import json
-class login_Test(APITestCase):
-    list_url = reverse("news:login")
+class login_Test(abstrat_Test):
 
-    def test_get_url(self):
-        self.assertEquals(resolve(self.list_url).func.view_class,login)
+    url_test = reverse("news:login")
+
+    def test_view_match(self):
+        self.view_match(login)
 
     def test_url_no_login(self):
-        response = self.client.get(self.list_url)
+        response = self.client.get(self.url_test)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_url_login(self):
@@ -35,16 +35,17 @@ class login_Test(APITestCase):
             'username':'stelmaszv',
             'password':'123'
         }
-        response=self.client.post(self.list_url, data)
+        response=self.client.post(self.url_test, data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
 class Get_Top_News_Test(abstrat_Test):
+
     url_test = reverse("news:Get_top_news")
     instance=News
     Serializer=NewsSerializer;
 
-    def test_get_url(self):
-        self.assertEquals(resolve(self.url_test).func.view_class,Get_Top_News)
+    def test_view_match(self):
+        self.view_match(Get_Top_News)
 
     def test_json_match(self):
         self.json_match()
@@ -59,52 +60,57 @@ class Get_Top_News_Test(abstrat_Test):
         }
         response = self.client.post(self.url_test, self.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
 class Get_News_test(abstrat_Test):
+
     url_test=reverse('news:Get', kwargs={"id": 1})
 
     def setUp(self):
         News.objects.create(title="soccerfqef")
 
-    def test_get_url(self):
-        self.assertEquals(resolve(self.url_test).func.view_class, Get_News)
+    def test_view_match(self):
+        self.view_match(Get_News)
 
-    def test_json_match(self):
+    def test_data_match(self):
         self.data_match()
 
 class Get_News_from_category_test(abstrat_Test):
+
     url_test=reverse('news:category_limit', kwargs={"category": "soccer"})
     instance=News
     Serializer=NewsSerializer;
 
 
-    def test_get_url(self):
-        self.assertEquals(resolve(self.url_test).func.view_class, Get_news_from_category)
+    def test_view_match(self):
+        self.view_match(Get_news_from_category)
 
     def test_json_match(self):
         self.json_match()
 
 class Get_news_from_category_all_test(abstrat_Test):
+
     url_test = reverse('news:category_all', kwargs={"category": "soccer"})
 
     def setUp(self):
         News.objects.create(title="soccerfqef")
 
-    def test_get_url(self):
-        self.assertEquals(resolve(self.url_test).func.view_class, Get_news_from_category_all)
+    def test_view_match(self):
+        self.view_match(Get_news_from_category_all)
 
-    def test_json_match(self):
+    def test_data_match(self):
         self.data_match()
 
 class Get_news_from_competitions_test(abstrat_Test):
+
     url_test = reverse('news:Get news competitions', kwargs={"competition": "BBL"})
 
     def setUp(self):
         Competitions.objects.create(name="BBL")
 
-    def test_get_url(self):
-        self.assertEquals(resolve(self.url_test).func.view_class, Get_news_from_competitions)
+    def test_view_match(self):
+        self.view_match(Get_news_from_competitions)
 
-    def test_json_match(self):
+    def test_data_match(self):
         self.data_match()
 
 class Get_news_from_category_pages_pages_test(abstrat_Test):
@@ -113,10 +119,10 @@ class Get_news_from_category_pages_pages_test(abstrat_Test):
     def setUp(self):
         Competitions.objects.create(name="BBL")
 
-    def test_get_url(self):
-        self.assertEquals(resolve(self.url_test).func.view_class, Get_news_from_category_pages)
+    def test_view_match(self):
+        self.view_match(Get_news_from_category_pages)
 
-    def test_json_match(self):
+    def test_data_match(self):
         self.data_match()
 
 class Get_news_from_competitions_pages_test(abstrat_Test):
@@ -125,10 +131,10 @@ class Get_news_from_competitions_pages_test(abstrat_Test):
     def setUp(self):
         Competitions.objects.create(name="BBL")
 
-    def test_get_url(self):
-        self.assertEquals(resolve(self.url_test).func.view_class, Get_news_from_competitions_pages)
+    def test_view_match(self):
+        self.view_match(Get_news_from_competitions_pages)
 
-    def test_json_match(self):
+    def test_data_match(self):
         self.data_match()
 
 class Get_top_news_in_Category_test(abstrat_Test):
@@ -137,10 +143,10 @@ class Get_top_news_in_Category_test(abstrat_Test):
     def setUp(self):
         Category.objects.create(name="soccer")
 
-    def test_get_url(self):
-        self.assertEquals(resolve(self.url_test).func.view_class, Get_top_news_in_Category)
+    def test_view_match(self):
+        self.view_match(Get_top_news_in_Category)
 
-    def test_json_match(self):
+    def test_data_match(self):
         self.data_match()
 
 class Get_top_news_in_Competition_test(abstrat_Test):
@@ -149,33 +155,35 @@ class Get_top_news_in_Competition_test(abstrat_Test):
     def setUp(self):
         Competitions.objects.create(name="BBL")
 
-    def test_get_url(self):
-        self.assertEquals(resolve(self.url_test).func.view_class, Get_top_news_in_Competition)
+    def test_view_match(self):
+        self.view_match(Get_top_news_in_Competition)
 
-    def test_json_match(self):
+    def test_data_match(self):
         self.data_match()
 
 class Get_Coments_test(abstrat_Test):
 
     url_test = reverse('news:Get Coments', kwargs={"news_id": "1"})
+
     def setUp(self):
         News.objects.create(title="soccerfqef")
 
-    def test_get_url(self):
-        self.assertEquals(resolve(self.url_test).func.view_class, Get_Coments)
+    def test_view_match(self):
+        self.view_match(Get_Coments)
 
-    def test_json_match(self):
+    def test_data_match(self):
         self.data_match()
 
 class Get_Coments_pages_test(abstrat_Test):
     url_test = reverse('news:Get Coments pages', kwargs={"news_id": "1"})
+
     def setUp(self):
         News.objects.create(title="soccerfqef")
 
-    def test_get_url(self):
-        self.assertEquals(resolve(self.url_test).func.view_class, Get_Coments_pages)
+    def test_data_match(self):
+        self.view_match(Get_Coments_pages)
 
-    def test_json_match(self):
+    def test_data_match(self):
         self.data_match()
 
 

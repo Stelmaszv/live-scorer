@@ -1,6 +1,5 @@
 from rest_framework import status
-from rest_framework.test import APITestCase
-from django.urls import reverse,resolve
+from django.urls import reverse
 from .serializers import NewsSerializer
 from .models import News,Category
 from liveScorer.models import Competitions

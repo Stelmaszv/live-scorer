@@ -8,6 +8,7 @@ import { ActivatedRoute} from '@angular/router';
   styleUrls: ['./get-news.component.scss']
 })
 export class GetNewsComponent implements OnInit {
+
   news:Get_News_Model;
   id:string;
   news_jason:string
@@ -15,7 +16,7 @@ export class GetNewsComponent implements OnInit {
 
   public ngOnInit() : void 
   {
-    this.id = this.route.snapshot.paramMap.get('id');
+    //this.id = this.route.snapshot.paramMap.get('id');
     this.get_news();
   }
   private get_news() : void 
